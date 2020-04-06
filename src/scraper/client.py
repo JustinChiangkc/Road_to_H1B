@@ -10,8 +10,13 @@ class Squirtle:
 		self.driver = webdriver.Chrome(conf['path_to_chromedriver'])
 		self.username = conf['username']
 		self.password = conf['password']
-		self.title = "Software Engineer"
-		self.location = "New York"
+		self.titles = ["Software Engineer", "Software Developer", "Machine Learning Engineer",
+					   "Data Engineer", "Data Analyst", "Web Developer"]
+
+		self.locations = ["New York City Metropolitan Area", "San Francisco Bay Area",
+						  "San Diego, California, United States", "Los Angeles Metropolitan Area",
+						  "Seattle, Washington, United States", "Greater Boston",
+						"Denver Metropolitan Area", "Greater Chicago Area"]
 
 	def login(self):
 		self.driver.get("https://www.linkedin.com/uas/login")
@@ -26,8 +31,16 @@ class Squirtle:
 		self.driver.quit()
 
 	def watergun(self):
-		self._redirect_to_job_page()
-		self._enter_search_info()
+		try:
+			self._redirect_to_job_page()
+			for title in self.titles:
+				for location in self.locations:
+					self._enter_search_info(title, location)
+					self._shoot()
+					break
+		except Exception as e:
+			# self.quit()
+			raise e
 
 	def _redirect_to_job_page(self):
 		try:
@@ -35,22 +48,57 @@ class Squirtle:
 			link.click()
 		except Exception as e:
 			print('Cannot redirect to Jobs page')
+			raise e
 
-	def _enter_search_info(self):
-		# WebDriverWait(self.driver, 10).until(
-		# 	EC.presence_of_element_located(
-		# 		(By.ID, "job-search-box-keyword-id-ember405")
-		# 	)
-		# )
+	def _enter_search_info(self, title, location):
+		WebDriverWait(self.driver, 60).until(
+			EC.element_to_be_clickable(
+				(By.XPATH, "//input[starts-with(@id, 'jobs-search-box-location-id')]")
+			)
+		)
+		elem = self.driver.find_element_by_xpath("//input[starts-with(@id, 'jobs-search-box-keyword-id')]")
+		elem.clear()
+		elem.send_keys(title)
+
+		elem = self.driver.find_element_by_xpath("//input[starts-with(@id, 'jobs-search-box-location-id')]")
+		elem.click()
+		elem.send_keys(location)
+		elem.send_keys(Keys.RETURN)
 		time.sleep(3)
-		title = self.driver.find_element_by_xpath("//input[starts-with(@id, 'jobs-search-box-keyword-id')]")
-		title.clear()
-		title.send_keys(self.title)
-		location = self.driver.find_element_by_xpath("//input[starts-with(@id, 'jobs-search-box-location-id')]")
-		location.click()
-		location.send_keys(self.location)
-		location.send_keys(Keys.RETURN)
-		time.sleep(3)
+
+	def _shoot(self):
+		page = 1
+		results = []
+		while True:
+			print('Current Page: {}'.format(page))
+
+			WebDriverWait(self.driver, 60).until(
+				EC.element_to_be_clickable(
+					(By.XPATH, "//ul[starts-with(@class, 'jobs-search-results__list')]")
+				)
+			)
+			ul = self.driver.find_element_by_xpath("//ul[starts-with(@class, 'jobs-search-results__list')]")
+			lis = ul.find_elements_by_tag_name("li")
+			for li in lis:
+				li.click()
+
+				WebDriverWait(self.driver, 60).until(
+					EC.visibility_of_element_located(
+						(By.ID, "job-details")
+					)
+				)
+
+				elem = self.driver.find_element_by_xpath("//div[@id='job-details']/span")
+				results.append(elem.text)
+
+			page += 1
+			try:
+				xpath = "//button[@aria-label='Page {}']".format(page)
+				elem = self.driver.find_element_by_xpath(xpath)
+			except Exception as e:
+				print('Last page has been reached')
+			else:
+				elem.click()
 
 def getConfig():
 	config = {}
@@ -66,8 +114,8 @@ def getConfig():
 
 if __name__ == "__main__":
 	config = getConfig()
-	jenny = Squirtle(config)
+	zeni = Squirtle(config)
 
-	jenny.login()
-	jenny.watergun()
+	zeni.login()
+	zeni.watergun()
 	# jenny.quit()
