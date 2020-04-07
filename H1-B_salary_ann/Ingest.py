@@ -51,7 +51,6 @@ if __name__ == "__main__":
         records.append(yr_data)  # all jobs starting with "software"   
     
     data = pd.concat(records, ignore_index=True) # Concatenating the dataframes [like union], index from 0 ~ n-1
-    #data = replace_title(records, 'SOFTWARE ENGINEER')
     save_to_txt(data, 'h1b_salary.txt')
 
 
