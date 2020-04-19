@@ -1,12 +1,5 @@
-val pivotEmployer = cdata2.groupBy("Fiscal Year","Employer").sum("TotalApproval").groupBy("Fiscal Year").pivot("Employer").sum("TotalApproval")
-val pivotEmployer18 = data18.groupBy("Fiscal Year","Employer").sum("TotalApproval").groupBy("Fiscal Year").pivot("Employer").sum("TotalApproval")
-val pivotDF = df.groupBy("Product","Country")
-      .sum("Amount")
-      .groupBy("Product")
-      .pivot("Country")
-      .sum("sum(Amount)")
-pivotDF.show()
-
+val dir = "final_project/data/cleaned_data"
+val cdata = spark.read.options(Map("inferSchema"->"true","delimiter"->",","header"->"true")).csv(dir)
 //Groupby emplyer, Fiscal Year, show top 10
 
 //Groupby NAICS, Fiscal Year, show top 10
@@ -15,32 +8,25 @@ pivotDF.show()
 
 //TotalApproval & TotalDenial
 val cdata2 = cdata.withColumn("TotalApproval", col("Initial Approvals") + col("Continuing Approvals")).withColumn("TotalDenial", col("Initial Denials") + col("Continuing Denials")).withColumn("TotalApply", col("TotalApproval") + col("TotalDenial"))
-
-val Employer = cdata2.groupBy("Fiscal Year","Employer").sum("TotalApproval","TotalDenial","TotalApply").sort(col("Fiscal Year"),col("sum(TotalApply)").desc)
-
-val State = cdata2.groupBy("Fiscal Year","State").sum("TotalApproval","TotalDenial","TotalApply").sort(col("Fiscal Year"),col("sum(TotalApply)").desc)
-
-val NAICS = cdata2.groupBy("Fiscal Year","NAICS").sum("TotalApproval","TotalDenial","TotalApply").sort(col("Fiscal Year"),col("sum(TotalApply)").desc)
-
-Employer.coalesce(1).write.option("header","true").option("sep",",").format("csv").save("final_project/data/Employer")
-State.coalesce(1).write.option("header","true").option("sep",",").format("csv").save("final_project/data/State")
-NAICS.coalesce(1).write.option("header","true").option("sep",",").format("csv").save("final_project/data/NAICS")
-
+//Groupby emplyer, Fiscal Year
+// val Employer = cdata2.groupBy("Fiscal Year","Employer").sum("TotalApproval","TotalDenial","TotalApply").sort(col("Fiscal Year"),col("sum(TotalApply)").desc)
+// //Groupby NAICS, Fiscal Year
+// val State = cdata2.groupBy("Fiscal Year","State").sum("TotalApproval","TotalDenial","TotalApply").sort(col("Fiscal Year"),col("sum(TotalApply)").desc)
+// //Groupby State, Fiscal Year
+// val NAICS = cdata2.groupBy("Fiscal Year","NAICS").sum("TotalApproval","TotalDenial","TotalApply").sort(col("Fiscal Year"),col("sum(TotalApply)").desc)
 
 
 ///
+// val Employer = spark.read.options(Map("inferSchema"->"true","delimiter"->",","header"->"true")).csv("final_project/data/Employer")
+// val State = spark.read.options(Map("inferSchema"->"true","delimiter"->",","header"->"true")).csv("final_project/data/State")
+// val NAICS = spark.read.options(Map("inferSchema"->"true","delimiter"->",","header"->"true")).csv("final_project/data/NAICS")
 
-from py4j.java_gateway import java_import
-java_import(spark._jvm, 'org.apache.hadoop.fs.Path')
+val AR_Employer = cdata2.filter(col("Fiscal Year")>2011).groupBy("Employer").sum("TotalApproval","TotalDenial","TotalApply").withColumn("ApprovalRate", col("sum(TotalApproval)")/col("sum(TotalApply)"))sort(col("sum(TotalApply)").desc)
+val AR_State = cdata2.filter(col("Fiscal Year")>2011).groupBy("State").sum("TotalApproval","TotalDenial","TotalApply").withColumn("ApprovalRate", col("sum(TotalApproval)")/col("sum(TotalApply)"))sort(col("sum(TotalApply)").desc)
+val AR_NAICS = cdata2.filter(col("Fiscal Year")>2011).groupBy("NAICS").sum("TotalApproval","TotalDenial","TotalApply").withColumn("ApprovalRate", col("sum(TotalApproval)")/col("sum(TotalApply)"))sort(col("sum(TotalApply)").desc)
+///
 
-fs = spark._jvm.org.apache.hadoop.fs.FileSystem.get(spark._jsc.hadoopConfiguration())
-file = fs.globStatus(sc._jvm.Path('mydata.csv-temp/part*'))[0].getPath().getName()
-fs.rename(sc._jvm.Path('mydata.csv-temp/' + file), sc._jvm.Path('mydata.csv'))
-fs.delete(sc._jvm.Path('mydata.csv-temp'), True)
-
-
-cdata2.groupBy("Fiscal Year","Employer").sum("TotalApproval","TotalDenial","TotalApply")
-
-val cdata2.groupBy("Fiscal Year","Employer").sum("TotalApproval","TotalDenial","TotalApply").sort(col("Fiscal Year"),col("Employer"))
-
-, col("sum(TotalApply)").desc
+//Save
+AR_Employer.coalesce(1).write.option("header","true").option("sep",",").format("csv").save("final_project/data/AR_Employer2")
+AR_State.coalesce(1).write.option("header","true").option("sep",",").format("csv").save("final_project/data/AR_State2")
+AR_NAICS.coalesce(1).write.option("header","true").option("sep",",").format("csv").save("final_project/data/AR_NAICS2")
