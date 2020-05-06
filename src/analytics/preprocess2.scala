@@ -3,6 +3,23 @@ def getAWS(text: String): Boolean = {
     return lower.indexOf("aws") != -1
 }
 
+def getAzure(text: String): Boolean = {
+    var lower = text.toLowerCase()
+    return lower.indexOf("azure") != -1
+}
+
+def getGCP(text: String): Boolean = {
+    var lower = text.toLowerCase()
+    val pattern1 = """.*(gcp).*""".r
+    val pattern2 = """.*(google[\s]*cloud).*""".r
+    
+    lower match{
+        case pattern1(_) => return true
+        case pattern2(_) => return true
+        case _ => return false  
+    }
+}
+
 def getKafka(text: String): Boolean = {
     var lower = text.toLowerCase()
     return lower.indexOf("kafka") != -1
@@ -18,6 +35,16 @@ def getSpark(text: String): Boolean = {
     return lower.indexOf("spark") != -1
 }
 
+def getHadoop(text: String): Boolean = {
+    var lower = text.toLowerCase()
+    return lower.indexOf("hadoop") != -1
+}
+
+def getMapReduce(text: String): Boolean = {
+    var lower = text.toLowerCase()
+    return lower.indexOf("mapreduce") != -1
+}
+
 def getDocker(text: String): Boolean = {
     var lower = text.toLowerCase()
     return lower.indexOf("docker") != -1
@@ -28,6 +55,16 @@ def getK8S(text: String): Boolean = {
     return lower.indexOf("k8s") != -1 || lower.indexOf("kubernetes") != -1
 }
 
+def getJenkins(text: String): Boolean = {
+    var lower = text.toLowerCase()
+    return lower.indexOf("jenkins") != -1
+}
+
+def getMaven(text: String): Boolean = {
+    var lower = text.toLowerCase()
+    return lower.indexOf("maven") != -1
+}
+
 def getPostgre(text: String): Boolean = {
     var lower = text.toLowerCase()
     return lower.indexOf("postgres") != -1
@@ -36,6 +73,11 @@ def getPostgre(text: String): Boolean = {
 def getMySQL(text: String): Boolean = {
     var lower = text.toLowerCase()
     return lower.indexOf("mysql") != -1
+}
+
+def getHive(text:String): Boolean = {
+    var lower = text.toLowerCase()
+    return lower.indexOf("hive") != -1
 }
 
 def getMongoDB(text: String): Boolean = {
@@ -51,6 +93,11 @@ def getCassandra(text: String): Boolean = {
 def getRedis(text: String): Boolean = {
     var lower = text.toLowerCase()
     return lower.indexOf("redis") != -1
+}
+
+def getHBase(text:String): Boolean = {
+    var lower = text.toLowerCase()
+    return lower.indexOf("hive") != -1
 }
 
 def getNet(text: String): Boolean = {
@@ -135,14 +182,9 @@ def getTensorflow(text: String): Boolean = {
     return lower.indexOf("tensorflow") != -1
 }
 
-def getScikit(text: String): Boolean = {
+def getMXNet(text: String): Boolean = {
     var lower = text.toLowerCase()
-    val pattern = """.*(sci[\s-]*kit).*""".r
-    
-    lower match{
-        case pattern(_) => return true
-        case _ => return false
-    }      
+    return lower.indexOf("mxnet") != -1
 }
 
 def getCompany(text: String): String = {
@@ -172,71 +214,95 @@ def getSkills(text: String): Int = {
     if (getAWS(text)){
         bitmap |= (1 << 0)
     }
-    if (getKafka(text)){
+    if (getAzure(text)){
         bitmap |= (1 << 1)
     }
-    if (getES(text)){
+    if (getGCP(text)){
         bitmap |= (1 << 2)
     }
-    if (getSpark(text)){
+    if (getKafka(text)){
         bitmap |= (1 << 3)
     }
-    if (getDocker(text)){
+    if (getES(text)){
         bitmap |= (1 << 4)
     }
-    if (getK8S(text)){
+    if (getSpark(text)){
         bitmap |= (1 << 5)
     }
-    if (getPostgre(text)){
+    if (getHadoop(text)){
         bitmap |= (1 << 6)
     }
-    if (getMySQL(text)){
+    if (getMapReduce(text)){
         bitmap |= (1 << 7)
     }
-    if (getMongoDB(text)){
+    if (getDocker(text)){
         bitmap |= (1 << 8)
     }
-    if (getCassandra(text)){
+    if (getK8S(text)){
         bitmap |= (1 << 9)
     }
-    if (getRedis(text)){
+    if (getJenkins(text)){
         bitmap |= (1 << 10)
     }
-    if (getNet(text)){
+    if (getMaven(text)){
         bitmap |= (1 << 11)
-    }
-    if (getDjango(text)){
+    } 
+    if (getPostgre(text)){
         bitmap |= (1 << 12)
     }
-    if (getFlask(text)){
+    if (getMySQL(text)){
         bitmap |= (1 << 13)
     }
-    if (getSpring(text)){
+    if (getHive(text)){
         bitmap |= (1 << 14)
     }
-    if (getNodeJS(text)){
+    if (getMongoDB(text)){
         bitmap |= (1 << 15)
     }
-    if (getExpressJS(text)){
+    if (getCassandra(text)){
         bitmap |= (1 << 16)
     }
-    if (getAngularJS(text)){
+    if (getRedis(text)){
         bitmap |= (1 << 17)
     }
-    if (getVueJS(text)){
+    if (getHBase(text)){
         bitmap |= (1 << 18)
     }
-    if (getReact(text)){
+    if (getNet(text)){
         bitmap |= (1 << 19)
     }
-    if (getPytorch(text)){
+    if (getDjango(text)){
         bitmap |= (1 << 20)
     }
-    if (getTensorflow(text)){
+    if (getFlask(text)){
         bitmap |= (1 << 21)
     }
-    if (getScikit(text)){
+    if (getSpring(text)){
         bitmap |= (1 << 22)
+    }
+    if (getNodeJS(text)){
+        bitmap |= (1 << 23)
+    }
+    if (getExpressJS(text)){
+        bitmap |= (1 << 24)
+    }
+    if (getAngularJS(text)){
+        bitmap |= (1 << 25)
+    }
+    if (getVueJS(text)){
+        bitmap |= (1 << 26)
+    }
+    if (getReact(text)){
+        bitmap |= (1 << 27)
+    }
+    if (getPytorch(text)){
+        bitmap |= (1 << 28)
+    }
+    if (getTensorflow(text)){
+        bitmap |= (1 << 29)
+    }
+    if (getMXNet(text)){
+        bitmap |= (1 << 30)
     }
     
     return bitmap

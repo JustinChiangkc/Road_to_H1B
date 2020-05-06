@@ -8,14 +8,14 @@ def parseSkills(text: String): String = {
     val bitmask = text.toInt
     var ret = new ListBuffer[String]()
     var a = 0;
-    for (a <- 1 to 3){
+    for (a <- 0 to 2){
         if (((1 << a) & bitmask) != 0){
-            if (a == 1){
-                ret += "Kafka" 
-            } else if (a == 2){
-                ret += "Elasticsearch"
+            if (a == 0){
+                ret += "AWS" 
+            } else if (a == 1){
+                ret += "Azure"
             } else {
-                ret += "Spark"
+                ret += "GCP"
             }
         }
     }

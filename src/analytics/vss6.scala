@@ -7,22 +7,11 @@ val data = sc.textFile("salary_skill_joined2")
 def parseSkills(text: String): String = {
     val bitmask = text.toInt
     var ret = new ListBuffer[String]()
+    var hm = HashMap(12 -> "PostgreSQL", 13 -> "MySQL", 14 -> "Hive", 15 -> "MongoDB", 16 -> "Cassandra", 17 -> "Redis", 18 -> "HBase")
     var a = 0;
-    for (a <- 11 to 16){
+    for (a <- 12 to 18){
         if (((1 << a) & bitmask) != 0){
-            if (a == 11){
-                ret += ".NET"
-            } else if (a == 12){
-                ret += "Django"
-            } else if (a == 13){
-                ret += "Flask"        
-            } else if (a == 14){
-                ret += "Spring"
-            } else if (a == 15){
-                ret += "Node.JS"
-            } else {
-                ret += "Express.JS"
-            }
+            ret += hm(a)
         }
     }
     return ret.mkString(",")

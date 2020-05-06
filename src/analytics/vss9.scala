@@ -7,9 +7,9 @@ val data = sc.textFile("salary_skill_joined2")
 def parseSkills(text: String): String = {
     val bitmask = text.toInt
     var ret = new ListBuffer[String]()
-    var hm = HashMap(8 -> "Docker", 9 -> "Kubernetes", 10 -> "Jenkins", 11 -> "Maven")
+    var hm = HashMap(28 -> "Pytorch", 29 -> "TensorFlow", 30 -> "MXNet")
     var a = 0;
-    for (a <- 8 to 11){
+    for (a <- 28 to 30){
         if (((1 << a) & bitmask) != 0){
             ret += hm(a)
         }
@@ -30,4 +30,4 @@ df2
 .coalesce(1)
 .write.format("com.databricks.spark.csv")
 .option("header", "true")
-.save("salary_skill5.csv")
+.save("salary_skill9.csv")

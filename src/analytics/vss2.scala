@@ -8,42 +8,42 @@ def parseSkills(text: String): String = {
     val bitmask = text.toInt
     var ret = new ListBuffer[String]()
     var a = 0;
-    var (aws, bd, co, db, be, fe, dl) = (false, false, false, false, false, false, false)
-    for (a <- 0 to 22){
+    var (cc, bd, dp, db, be, fe, dl) = (false, false, false, false, false, false, false)
+    for (a <- 0 to 30){
         if (((1 << a) & bitmask) != 0){
-            if (a == 0){
-                if (!aws){
-                    ret += "AWS"
-                    aws = true
+            if (a <= 2){
+                if (!cc){
+                    ret += "Cloud Computing"
+                    cc = true
                 }
-            } else if (a <= 3){
+            } else if (a <= 7){
                 if (!bd){
                     ret += "Big Data"
                     bd = true
                 }
-            } else if (a <= 5){
-                if (!co){
-                    ret += "Container"
-                    co = true
+            } else if (a <= 11){
+                if (!dp){
+                    ret += "DevOp"
+                    dp = true
                 }
-            } else if (a <= 10){
+            } else if (a <= 18){
                 if (!db){
                     ret += "Database"
                     db = true
                 }
-            } else if (a <= 16){
+            } else if (a <= 24){
                 if (!be){
-                    ret += "Back-end"
+                    ret += "Back end"
                     be = true
                 }
-            } else if (a <= 19){
+            } else if (a <= 27){
                 if (!fe){
-                    ret += "Front-end"
+                    ret += "Front end"
                     fe = true
                 }
             } else{
                 if (!dl){
-                    ret += "DL/ML"
+                    ret += "Deep Learning"
                     dl = true
                 }
             }
