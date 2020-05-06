@@ -27,7 +27,7 @@ println("Lowest Salary:" + salary_list.min())  // Lowest Salary:923
 
 ///////////////////////////  employer ///////////////////////////
 
-val salary_data = "file:///Users/anntsai5168/scala/project/project_data/h1b_salary_df_clean.csv"
+val salary_data = "/user/mt4050/project_data/h1b_salary_df_clean.csv"
 val salary = spark.sqlContext.read.format("csv").option("header", "true").option("inferSchema", "true").load(salary_data).withColumnRenamed("year", "salary_year").withColumnRenamed("base salary", "base_salary").withColumnRenamed("case status", "status")
 
 
@@ -51,7 +51,7 @@ spark.sql("SELECT COUNT(DISTINCT(employer)) FROM salary_view").show() // bf : 21
 import org.apache.spark.SparkConf
 
 
-val salary_data = "file:///Users/anntsai5168/scala/project/project_data/h1b_salary_df_clean.csv"
+val salary_data = "/user/mt4050/project_data/h1b_salary_df_clean.csv"
 val salary = spark.sqlContext.read.format("csv").option("header", "true").option("inferSchema", "true").load(salary_data).withColumnRenamed("year", "salary_year").withColumnRenamed("base salary", "base_salary").withColumnRenamed("case status", "status")
 
 

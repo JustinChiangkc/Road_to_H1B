@@ -37,3 +37,13 @@ Sensitivity Analysis : delta_x = 10 % -> delta_y = 8.604373165951763E-8 %
 count: 3306, avg of median salary: 90205.5 -> Yi = 3.984187386066755E-7 *(Xi) + ϵi
 p value: 0.03891760564179769 , isSignificant : true
 Sensitivity Analysis : delta_x = 10 % -> delta_y = 3.9841873860667553E-8 %
+
+
+A zip file containing source code for the application, class files, jar, etc. in a /app_code directory Code and 
+commands for data ingestion in a /data_ingest directory
+ETL in a /etl_code directory
+Profiling code in a /profiling_code directory
+Optional: Test code and unused code in a /test_code directory
+Optional: Code related to actuation or remediation steps in a /act_rem_code directory 
+Screen shots that show your analytic running in a /screenshots directory
+A readme file (see below) in the root (top) of your directory structure

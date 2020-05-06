@@ -11,7 +11,7 @@ import org.apache.spark.ml.regression.LinearRegressionSummary
 // hdfs
 // val salary_data = "/user/mt4050/h1b_median_salary.csv" 
 
-val salary_data = "file:///Users/anntsai5168/scala/project/project_data/h1b_median_salary.csv"
+val salary_data = "/user/mt4050/project_data/h1b_median_salary.csv"
 val salary = spark.sqlContext.read.format("csv").option("header", "true").option("inferSchema", "true").load(salary_data)
 salary.show(5)
 /*
@@ -44,7 +44,7 @@ acceptance_data.show(5)
 */
 
 // read in real acceptance_data
-val acceptance_data = "file:///Users/anntsai5168/scala/project/project_data/h1b_acceptance_rate_clean"
+val acceptance_data = "/user/mt4050/project_data/h1b_acceptance_rate_clean"
 val acceptance = spark.sqlContext.read.format("csv").option("header", "true").option("inferSchema", "true").load(acceptance_data)
 acceptance.createOrReplaceTempView("acceptance_view")
 val acceptance = spark.sql("select FiscalYear as rate_year, State as rate_state, Employer as rate_employer, ApprovalRate as rate from acceptance_view")
@@ -98,7 +98,7 @@ salary_acceptance.count
 //res23: Long = 18615
 
 
-salary_acceptance.repartition(1).write.mode ("overwrite").format("com.databricks.spark.csv").option("header", "true").save("file:///Users/anntsai5168/scala/project/project_data/salary_acceptance")
+salary_acceptance.repartition(1).write.mode ("overwrite").format("com.databricks.spark.csv").option("header", "true").save("/user/mt4050/project_data/salary_acceptance")
 
 
 // get all years
@@ -152,7 +152,7 @@ def lrWithSVMFormat(salary_acceptance: DataFrame, year_array: Array[Any]) = {
         */
 
         // save train rawdata
-        // train_rawdata.coalesce(1).write.format("com.databricks.spark.csv").option("header", "true").mode("overwrite").save("file:///Users/anntsai5168/scala/project/project_data/train_rawdata")
+        // train_rawdata.coalesce(1).write.format("com.databricks.spark.csv").option("header", "true").mode("overwrite").save("/user/mt4050/project_data/train_rawdata")
 
         // load training data
         // val rawdata = "file:///Users/anntsai5168/scala/project/train_rawdata"

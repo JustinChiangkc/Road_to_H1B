@@ -13,11 +13,11 @@ object lrModel {
 
     def main(args:Array[String]){  
 
-        val salary_data = "file:///Users/anntsai5168/scala/project/project_data/h1b_median_salary.csv"
+        val salary_data = "/user/mt4050/project_data/h1b_median_salary.csv"
         val salary = spark.sqlContext.read.format("csv").option("header", "true").option("inferSchema", "true").load(salary_data)
 
         // read in real acceptance_data
-        val acceptance_data = "file:///Users/anntsai5168/scala/project/project_data/h1b_acceptance_rate_clean"
+        val acceptance_data = "/user/mt4050/project_data/h1b_acceptance_rate_clean"
         val acceptance = spark.sqlContext.read.format("csv").option("header", "true").option("inferSchema", "true").load(acceptance_data)
         acceptance.createOrReplaceTempView("acceptance_view")
         val acceptance = spark.sql("select FiscalYear as rate_year, State as rate_state, Employer as rate_employer, ApprovalRate as rate from acceptance_view")
@@ -30,7 +30,7 @@ object lrModel {
         val salary_acceptance = spark.sql("select * from salary_acceptance_view where rate != 0")
 
         // save as csv
-        salary_acceptance.repartition(1).write.mode ("overwrite").format("com.databricks.spark.csv").option("header", "true").save("file:///Users/anntsai5168/scala/project/project_data/salary_acceptance")
+        salary_acceptance.repartition(1).write.mode ("overwrite").format("com.databricks.spark.csv").option("header", "true").save("/user/mt4050/project_data/salary_acceptance")
 
         // get all years
         val year_array = spark.sql("SELECT DISTINCT(year) FROM salary_acceptance_view ORDER BY year").collect.map(_.toSeq).flatten

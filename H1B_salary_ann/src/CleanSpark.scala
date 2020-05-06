@@ -41,7 +41,7 @@ def parse_company(text: String): String = {
 //// PARSE SALARY DATA
 
 //val raw = sc.textFile("/user/mt4050/h1b_salary.txt")
-val raw = sc.textFile("file:///Users/anntsai5168/scala/project/project_data/h1b_salary.txt")
+val raw = sc.textFile("/user/mt4050/project_data/h1b_salary.txt")
 
 // drop the header
 val raw_no_header = raw.mapPartitionsWithIndex {(idx, iter) => if (idx == 0) iter.drop(1) else iter }
@@ -66,7 +66,7 @@ val filter_output = output.filter(line => (line.split(',')).length == 7)
 //// PARSE H1B - ACCEPTANCE RATE DATA
 
 // dataframe parse
-val acceptance_raw = sc.textFile("file:///Users/anntsai5168/scala/project/project_data/h1b_acceptance_rate.csv")  // original file
+val acceptance_raw = sc.textFile("/user/mt4050/project_data/h1b_acceptance_rate.csv")  // original file
 val acceptance_raw_no_header = acceptance_raw.mapPartitionsWithIndex {(idx, iter) => if (idx == 0) iter.drop(1) else iter }
 
 // filter len != 6
@@ -108,7 +108,7 @@ res12: Long = 227329
 
 // save to txtfile                      
 var repartitioned = filter_output.repartition(1)
-repartitioned.saveAsTextFile("file:///Users/anntsai5168/scala/project/project_data/h1b_salary_clean.txt")
+repartitioned.saveAsTextFile("/user/mt4050/project_data/h1b_salary_clean.txt")
 
 
 // save to csv
@@ -149,7 +149,7 @@ df.show(5)
 */
 
 // Writing dataframe to a file with overwrite mode, header and single partition.
-df.repartition(1).write.mode ("overwrite").format("com.databricks.spark.csv").option("header", "true").save("file:///Users/anntsai5168/scala/project/project_data/h1b_salary_df_clean.csv")
+df.repartition(1).write.mode ("overwrite").format("com.databricks.spark.csv").option("header", "true").save("/user/mt4050/project_data/h1b_salary_df_clean.csv")
 
 
 
@@ -179,7 +179,7 @@ Fiscal Year|State|            Employer|      ApprovalRate|
 |       2013|   TX|             infosys|0.9332361516034985|
 */
 
-accp_df.repartition(1).write.mode ("overwrite").format("com.databricks.spark.csv").option("header", "true").save("file:///Users/anntsai5168/scala/project/project_data/h1b_acceptance_rate_clean")
+accp_df.repartition(1).write.mode ("overwrite").format("com.databricks.spark.csv").option("header", "true").save("/user/mt4050/project_data/h1b_acceptance_rate_clean")
 
 // hdfs dfs -get h1b_salary_clean.txt
 // scp -r mt4050@dumbo.es.its.nyu.edu:/home/mt4050 ./project_data

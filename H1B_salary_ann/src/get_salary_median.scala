@@ -3,7 +3,7 @@ import org.apache.spark.sql.DataFrame
 
 ///////////////////////////  calculate salary median /////////////////////////// 
 
-val salary_data = "file:///Users/anntsai5168/scala/project/project_data/h1b_salary_df_clean.csv"
+val salary_data = "/user/mt4050/project_data/h1b_salary_df_clean.csv"
 val salary_raw = spark.sqlContext.read.format("csv").option("header", "true").option("inferSchema", "true").load(salary_data).withColumnRenamed("year", "salary_year").withColumnRenamed("base salary", "base_salary")
 // employer name escape, ex. zeng's fabric -> zengs fabric
 //   employer|        job title|base_salary|case status|state|salary_year|month|   parsed_employer|
@@ -24,7 +24,7 @@ def getMedian(salary: DataFrame) = {
     //spark.sql("SELECT DISTINCT(year) FROM output_view").show()
 
     // save as csv
-    output.coalesce(1).write.format("com.databricks.spark.csv").option("header", "true").save("file:///Users/anntsai5168/scala/project/project_data/h1b_median_salary.csv")
+    output.coalesce(1).write.format("com.databricks.spark.csv").option("header", "true").save("/user/mt4050/project_data/h1b_median_salary.csv")
 
 }
 
