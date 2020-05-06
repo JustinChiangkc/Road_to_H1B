@@ -26,5 +26,34 @@ we may ask you to put it on Dumbo if it isn't already there.
     e. result : 
         see final_application_code/screenshots/salary_linear_regression_result.png
 
+## for pl/skills vs salary
+    a. data ingest:
+	run "python3 final_application_code/data_ingest/scraper/main.py" in command line
+	requires selenium installed. requires to put linkedin credential in linkedinconfig.txt.
+	It will automatically scraped from linkedin. Built based on early April's website layer
+	
+    b. etl
+	go to final_application_code/eta_code/pl_etl.scala, and execute code in spark REPL
+	It will generate the ((company_name, role), (pl_bitmap, degree_bitmap))
+
+	go to final_application_code/etl_code/skills_etl.scala, and execute code in spark REPL
+	It will generate the ((company_name, role), (skills_bitmap, degree_bitmap))
+
+    c. Profiling
+	first, go to final_application_code/etl_code/join.scala, and execute codes in spark REPL
+	It will join the salary and pl/skills based on (company_name, role)
+
+	then go to final_application_code/profiling_code/visualization_pl_skills, and execute all codes in spark REPL
+	It will generate the data after sorting into different categories. They are ready to be visualized on Tableau
+
+    d. Analytics
+	go to final_application_code/eta_code/pl_importance_test.scala, and execute code in spark REPL
+	It attempts to build a linear regression model for importance test but failed
+	
+	Most analytics with aggregate methods(ex.distinct, count, median, average) are done on tableau
+
+    e, Result
+	You can find several screenshots of the final result under final_application_code/screenshots/visualization_pl_skills
+
 
 
