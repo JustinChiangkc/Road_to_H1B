@@ -1,3 +1,5 @@
+// normalize company name
+// return String: normalized_result
 def processCompany(text: String): String = {
     var lower = text.toLowerCase()
     var symbols = """[\.&,-/\*^@#&$%!\?]""".r//deal with space!

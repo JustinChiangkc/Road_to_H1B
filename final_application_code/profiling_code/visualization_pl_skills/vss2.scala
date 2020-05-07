@@ -4,6 +4,7 @@ import spark.implicits._
 
 val data = sc.textFile("salary_skill_joined2")
 
+// decode skills into 6 categories
 def parseSkills(text: String): String = {
     val bitmask = text.toInt
     var ret = new ListBuffer[String]()

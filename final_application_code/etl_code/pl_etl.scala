@@ -106,6 +106,8 @@ def getSql(text: String): Boolean = {
     return lower.indexOf("sql") != -1
 }
 
+// extract degree requirement from job description
+// return Int: bitmap
 def getDegree(text: String): Int = {
     val lower = text.toLowerCase()
     val bs1 = """.*[^a-zA-Z]+(b\.*[as]\.*|bachelor['’s]*)[\s,\./]+.*""".r
@@ -142,10 +144,13 @@ def getDegree(text: String): Int = {
     return bitmask   
 }
 
+// preprocess company name
 def getCompany(text: String): String = {
     return text.replaceAll(",", "").replaceAll("inc", "").replaceAll("Inc", "").trim
 }
 
+// extract pls from job description
+// return Int: bitmap
 def getSkills(text: String): Int = {
     var bitmask: Int = 0
     

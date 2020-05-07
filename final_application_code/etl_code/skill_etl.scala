@@ -187,10 +187,12 @@ def getMXNet(text: String): Boolean = {
     return lower.indexOf("mxnet") != -1
 }
 
+// preprocess company name
 def getCompany(text: String): String = {
     return text.replaceAll(",", "").replaceAll("inc", "").replaceAll("Inc", "").trim
 }
 
+// preprocess role
 def getTitle(rawtitle: String): String = {
     val sde = """.*(software).*""".r
     val da = """.*(analy).*""".r
@@ -208,6 +210,8 @@ def getTitle(rawtitle: String): String = {
     }
 }
 
+// extract skills from job description
+// return Int: bitmap
 def getSkills(text: String): Int = {
     var bitmap: Int = 0
     
@@ -308,6 +312,8 @@ def getSkills(text: String): Int = {
     return bitmap
 }
 
+// extract degree requirement from job description
+// return Int: bitmap (bs, ms, phd)
 def getDegree(text: String): Int = {
     val lower = text.toLowerCase()
     val bs1 = """.*[^a-zA-Z]+(b\.*[as]\.*|bachelor['’s]*)[\s,\./]+.*""".r
