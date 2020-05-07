@@ -55,5 +55,27 @@ we may ask you to put it on Dumbo if it isn't already there.
     e, Result
 	You can find several screenshots of the final result under final_application_code/screenshots/visualization_pl_skills
 
+## for pl/skills vs H1B
+    a. data ingest:
+        First, follow the instrction in "Ingest h1b data" to scp the "h1b_cleaned_data" and "cleaned_jobs" to Dumbo.
+        Secondly, use Linux commend line in "Ingest h1b data", which will build a directory and put the data on HDFS.
+    b. Profiling
+        run "H1B_Profiling.scala" in profileing_code to understand the data.
+
+    c. ETL:
+        i. Extract data for h1b acceptance for time, NSICS, Employer analysis.
+        Run "H1B_Acceptance_ETL.scala" using REPL and get H1B_pivot_Employer_year, H1B_pivot_state_year, H1B_pivot_NAICS_year, and H1B_AR_Year_NAICS_Employer for Tableau visualization.
+    d. Application:
+        i. Get the relation between programming language and h1b counts.
+        Run "h1b_PL.scala" in app_code in REPL. The code will join "cleaned_jobs" where contains processed skills data from Linkedin dataset and "h1b_cleaned_data". The result will produce a csv file, "PL_h1b", contains information for h1b counts per programming language.
+
+        ii. Get the relation between technical skills and h1b counts.
+        Run "h1b_skills.scala" in app_code in REPL. The code will join "cleaned_jobs" where contains processed skills data from Linkedin dataset and "h1b_cleaned_data". The result will produce several csv files, "MLDL_h1b","frontend_h1b", "backend_h1b", "DB_h1b", "Docker_h1b2", "BD_h1b2", "CC_h1b2", and "Skills_h1b", contains information for h1b counts in different skills.
+
+
+
+## H1B acceptance rate data preparation for Salary_H1B analysis
+    a. Run "getH1bAcceptanceRateforSalary.scala" on REPL to get "AR_Year_Employer_State". 
+
 
 
