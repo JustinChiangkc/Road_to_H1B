@@ -3,8 +3,9 @@ import spark.implicits._
 
 //functions
 def processCompany(text: String): String = {
+    //the function will use regexp to normalize company name
     var lower = text.toLowerCase()
-    var symbols = """[\.&,-/\*^@#&$%!\?]""".r//deal with space!
+    var symbols = """[\.&,-/\*^@#&$%!\?]""".r
     lower = symbols.replaceAllIn(lower, "")
     
     var paren = """\(.*\)""".r
@@ -27,6 +28,7 @@ def processCompany(text: String): String = {
 import scala.collection.mutable.HashMap
 import scala.collection.mutable.ListBuffer 
 def parseSkills(text: String): String = {
+    //parse bitmask of ProgrammingLanguage
     val bitmask = text.toInt 
     var ret = new ListBuffer[String]()
     val lookup = HashMap(0 -> "C", 1 -> "C++", 2 -> "Python", 3 -> "Java", 4 -> "Javascript", 5 -> "Go", 6 -> "Scala", 7 -> "C#", 8 -> "SQL")
@@ -71,7 +73,7 @@ import org.apache.spark.sql.functions.udf
 val processCompanyUDF = udf(processCompany _)
 val h1b_Employer = h1bdatafram.filter(col("Fiscal Year")>2011).withColumn("Employer",processCompanyUDF('Employer)).groupBy("Employer").sum("Initial Approvals","Initial Denials").withColumn("TotalApply", col("sum(Initial Approvals)") + col("sum(Initial Denials)")).sort(col("TotalApply").desc)
 
-//check 
+//check total counts of distincst employer after normalization
 import org.apache.spark.sql.functions.countDistinct
 h1b_Employer.agg(countDistinct("Employer")).show
 // +------------------------+                                                      
@@ -81,7 +83,6 @@ h1b_Employer.agg(countDistinct("Employer")).show
 // +------------------------+
 
 //Join h1b and skill
-// val h1b_skill = h1b_Employer.join(skillDF).where(h1b_Employer("Employer") === skillDF("Employer"))
 val h1b_skill = h1b_Employer.join(skillDF,Seq("Employer"),"inner")
 h1b_skill.persist
 
@@ -91,11 +92,11 @@ h1b_skill.persist
 // val dir = "final_project/data/h1b_skill2"
 // val h1b_skill = spark.read.options(Map("inferSchema"->"true","delimiter"->",","header"->"true")).csv(dir)
 
-//Check
+//Check using SparkSQL
 val h1b_skillSQL = h1b_skill.withColumnRenamed("sum(Initial Approvals)", "IP").withColumnRenamed("sum(Initial Denials)", "ID")
 h1b_skillSQL.createOrReplaceTempView("h1b_skill_view")
 
-//Analyze yearly h1b count per PL
+//Analyze yearly h1b count per PL using udf
 import org.apache.spark.sql.functions.udf
 val parseSkillsUDF = udf(parseSkills _)
 val PL_h1b = h1b_skill.withColumn("PL",parseSkillsUDF('PL)).withColumn("PL",split(col("PL"),",")).select($"sum(Initial Approvals)",explode($"PL")).groupBy("col").sum("sum(Initial Approvals)").withColumnRenamed("col","ProgrammingLanguage").withColumnRenamed("sum(sum(Initial Approvals))","h1bCount").filter(col("ProgrammingLanguage") =!= "").withColumn("h1bCount",$"h1bCount"/8)

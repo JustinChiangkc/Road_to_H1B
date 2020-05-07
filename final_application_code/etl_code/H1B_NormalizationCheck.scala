@@ -6,6 +6,7 @@ val cdata = spark.read.options(Map("inferSchema"->"true","delimiter"->",","heade
 
 //functiuons for company name process
 def processCompany(text: String): String = {
+    //normalize employer name by regexp
     var lower = text.toLowerCase()
     
     var paren = """\(.*\)""".r
@@ -30,6 +31,7 @@ def processCompany(text: String): String = {
 }
 
 def processCompanyHelper(text: String): String = {
+    //normalize employer name by contain function
     val text1 = text.toLowerCase()
     val text2 = if (text1.contains("amazon")) "amazon" else text1
     val text3 = if (text2.contains("google")) "google" else text2
@@ -51,64 +53,12 @@ import org.apache.spark.sql.functions.udf
 val processCompanyUDF = udf(processCompany _)
 val processCompanyHelperUDF = udf(processCompanyHelper _)
 
-
-//Check TotalApproval & TotalDenial
-val cdata2 = cdata.withColumn("TotalApproval", col("Initial Approvals") + col("Continuing Approvals")).withColumn("TotalDenial", col("Initial Denials") + col("Continuing Denials")).withColumn("TotalApply", col("TotalApproval") + col("TotalDenial"))
-
-//Groupby emplyer, Fiscal Year
-val Employer = cdata2.groupBy("Fiscal Year","Employer").sum("TotalApproval","TotalDenial","TotalApply").sort(col("Fiscal Year"),col("sum(TotalApply)").desc)
-//Groupby NAICS, Fiscal Year
-val State = cdata2.groupBy("Fiscal Year","State").sum("TotalApproval","TotalDenial","TotalApply").sort(col("Fiscal Year"),col("sum(TotalApply)").desc)
-//Groupby State, Fiscal Year
-val NAICS = cdata2.groupBy("Fiscal Year","NAICS").sum("TotalApproval","TotalDenial","TotalApply").sort(col("Fiscal Year"),col("sum(TotalApply)").desc)
-
-// val Employer = spark.read.options(Map("inferSchema"->"true","delimiter"->",","header"->"true")).csv("final_project/data/Employer")
-// val State = spark.read.options(Map("inferSchema"->"true","delimiter"->",","header"->"true")).csv("final_project/data/State")
-// val NAICS = spark.read.options(Map("inferSchema"->"true","delimiter"->",","header"->"true")).csv("final_project/data/NAICS")
-
-val AR_Employer = cdata2.filter(col("Fiscal Year")>2011).groupBy("Employer").sum("TotalApproval","TotalDenial","TotalApply").withColumn("ApprovalRate", col("sum(TotalApproval)")/col("sum(TotalApply)"))sort(col("sum(TotalApply)").desc)
-val AR_State = cdata2.filter(col("Fiscal Year")>2011).groupBy("State").sum("TotalApproval","TotalDenial","TotalApply").withColumn("ApprovalRate", col("sum(TotalApproval)")/col("sum(TotalApply)"))sort(col("sum(TotalApply)").desc)
-val AR_NAICS = cdata2.filter(col("Fiscal Year")>2011).groupBy("NAICS").sum("TotalApproval","TotalDenial","TotalApply").withColumn("ApprovalRate", col("sum(TotalApproval)")/col("sum(TotalApply)"))sort(col("sum(TotalApply)").desc)
-
-//Save
-AR_Employer.coalesce(1).write.option("header","true").option("sep",",").format("csv").save("final_project/data/AR_Employer2")
-AR_State.coalesce(1).write.option("header","true").option("sep",",").format("csv").save("final_project/data/AR_State2")
-AR_NAICS.coalesce(1).write.option("header","true").option("sep",",").format("csv").save("final_project/data/AR_NAICS2")
-
-//Load 
-// val AR_Employer = spark.read.options(Map("inferSchema"->"true","delimiter"->",","header"->"true")).csv("final_project/data/AR_Employer2")
-// val AR_State = spark.read.options(Map("inferSchema"->"true","delimiter"->",","header"->"true")).csv("final_project/data/AR_State2")
-// val AR_NAICS = spark.read.options(Map("inferSchema"->"true","delimiter"->",","header"->"true")).csv("final_project/data/AR_NAICS2")
-
-
-
-//Functions for Getting trend for Employer/State/NAICS
-def get_trend_Employer(Employer:String, df:DataFrame): DataFrame = {
-	val trend:DataFrame = df.filter(col("Employer") === Employer)
-	.groupBy("Fiscal Year").sum("Initial Approvals","Initial Denials")
-	.withColumn("ApprovalRate", col("sum(Initial Approvals)")/(col("sum(Initial Approvals)")+col("sum(Initial Denials)")))
-	.sort(col("Fiscal Year").desc) 
-	return trend
-}
-
-def get_trend_State(State:String, df:DataFrame): DataFrame = {
-	val trend:DataFrame = df.filter(col("State") === State)
-	.groupBy("Fiscal Year").sum("Initial Approvals","Initial Denials")
-	.withColumn("ApprovalRate", col("sum(Initial Approvals)")/(col("sum(Initial Approvals)")+col("sum(Initial Denials)")))
-	.sort(col("Fiscal Year").desc) 
-	return trend
-}
-def get_trend_NAICS(NAICS:String, df:DataFrame): = DataFrame{
-    val trend:DataFrame = df.filter(col("NAICS" === NAICS)).groupBy("Fiscal Year").sum("TotalApproval","TotalDenial","TotalApply").withColumn("ApprovalRate", col("sum(TotalApproval)")/col("sum(TotalApply)")).sort(col("Fiscal Year").desc) 
-    return trend
-}
-
 //Check NAICS_54
 val NAICS_54 = cdata.filter(col("NAICS") === 54).groupBy("Employer").sum("Initial Approvals","Initial Denials").sort(col("sum(Initial Approvals)").desc).rdd
 val processed = NAICS_54.map( x => (x.getString(0),processCompany(x.getString(0))))
 for( x <- processed.take(20)){ println(x)}
 
-//Check function
+//Check normalization status
 val processCompanyUDF = udf(processCompany _)
 val processCompanyHelperUDF = udf(processCompanyHelper _)
 val test = cdata.withColumn("Employer2", processCompanyUDF('Employer)).withColumn("Employer2", processCompanyHelperUDF('Employer)).select("Employer","Employer2")

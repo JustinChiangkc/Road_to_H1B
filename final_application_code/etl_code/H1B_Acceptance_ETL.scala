@@ -1,13 +1,12 @@
 import org.apache.spark.sql.DataFrame
 
-//final
-
 //load in data
 val dir = "data/h1b_cleaned_data"
 val cdata = spark.read.options(Map("inferSchema"->"true","delimiter"->",","header"->"true")).csv(dir)
 
 //functiuons for company name process
 def processCompany(text: String): String = {
+    //the function will use regexp to normalize company name
     var lower = text.toLowerCase()
     
     var paren = """\(.*\)""".r
@@ -32,6 +31,7 @@ def processCompany(text: String): String = {
 }
 
 def processCompanyHelper(text: String): String = {
+    //the function will use contain function to further normalize the company name that is not normalized throught the previous function.
     val text1 = text.toLowerCase()
     val text2 = if (text1.contains("amazon")) "amazon" else text1
     val text3 = if (text2.contains("google")) "google" else text2
@@ -48,11 +48,34 @@ def processCompanyHelper(text: String): String = {
     return text10
 }
 
+
 //convert function into UDF
 import org.apache.spark.sql.functions.udf
 val processCompanyUDF = udf(processCompany _)
 val processCompanyHelperUDF = udf(processCompanyHelper _)
 
+//Functions for Getting trend for Employer/State/NAICS
+def get_trend_Employer(Employer:String, df:DataFrame): DataFrame = {
+    val trend:DataFrame = df.filter(col("Employer") === Employer)
+    .groupBy("Fiscal Year").sum("Initial Approvals","Initial Denials")
+    .withColumn("ApprovalRate", col("sum(Initial Approvals)")/(col("sum(Initial Approvals)")+col("sum(Initial Denials)")))
+    .sort(col("Fiscal Year").desc) 
+    return trend
+}
+def get_trend_State(State:String, df:DataFrame): DataFrame = {
+    val trend:DataFrame = df.filter(col("State") === State)
+    .groupBy("Fiscal Year").sum("Initial Approvals","Initial Denials")
+    .withColumn("ApprovalRate", col("sum(Initial Approvals)")/(col("sum(Initial Approvals)")+col("sum(Initial Denials)")))
+    .sort(col("Fiscal Year").desc) 
+    return trend
+}
+def get_trend_NAICS(NAICS:String, df:DataFrame): = DataFrame{
+    val trend:DataFrame = df.filter(col("NAICS" === NAICS)).groupBy("Fiscal Year").sum("TotalApproval","TotalDenial","TotalApply").withColumn("ApprovalRate", col("sum(TotalApproval)")/col("sum(TotalApply)")).sort(col("Fiscal Year").desc) 
+    return trend
+}
+
+
+//Get the pivot table for employer h1b counts per year
 val pivot_Employer_year = cdata.withColumn("Employer", processCompanyUDF('Employer)).withColumn("Employer", processCompanyHelperUDF('Employer)).groupBy("Employer").pivot("Fiscal Year").sum("Initial Approvals").sort(col("2019").desc)
 pivot_Employer_year.show(false)
 pivot_Employer_year.coalesce(1).write.option("header","true").option("sep",",").format("csv").save("data/H1B_pivot_Employer_year")
@@ -82,6 +105,7 @@ pivot_Employer_year.coalesce(1).write.option("header","true").option("sep",",").
 // +-----------------+----+----+----+----+----+----+----+----+----+----+----+
 // only showing top 20 rows
 
+// Sum the h1b counts for employers of all years
 val pivot_Employer_year2 = pivot_Employer_year.withColumn("Sum",col("2009")+col("2010")+col("2011")+col("2012")+col("2013")+col("2014")+col("2015")+col("2016")+col("2017")+col("2018")+col("2019")).sort(col("Sum").desc)
 pivot_Employer_year2.show(false)
 // +--------------------+----+----+----+----+----+----+----+----+----+----+----+-----+
@@ -109,11 +133,10 @@ pivot_Employer_year2.show(false)
 // |            qualcomm| 374| 340| 319| 602| 817| 404| 218| 144| 301| 126| 543| 4188|
 // +--------------------+----+----+----+----+----+----+----+----+----+----+----+-----+
 
-//check
+//Using Spark SQL to test
 val sqlContext = new SQLContext(sc)
 import sqlContext.implicits._
 import org.apache.spark.sql._
-
 val pivot_Employer_year3 = cdata.withColumn("Employer", processCompanyUDF('Employer)).withColumnRenamed("Initial Approvals","IA")
 pivot_Employer_year3.createOrReplaceTempView("pivot_Employer_year3")
 spark.sql("SELECT * FROM pivot_Employer_year3 where Employer like '%amazon%' order by IA desc").show()
@@ -134,7 +157,7 @@ spark.sql("SELECT * FROM pivot_Employer_year3 where Employer like '%amazon%' ord
 // +--------------------+----+----+----+----+----+----+----+----+----+----+----+
 
 
-//State trend (NAICS_54 only)
+//Get state trend (NAICS_54 only)
 val pivot_state_year = cdata.withColumn("Employer", processCompanyUDF('Employer)).withColumn("Employer", processCompanyHelperUDF('Employer)).groupBy("State").pivot("Fiscal Year").sum("Initial Approvals").sort(col("2019").desc)
 pivot_state_year.coalesce(1).write.option("header","true").option("sep",",").format("csv").save("data/H1B_pivot_state_year")
 // scala> pivot_state_year.show
@@ -164,7 +187,7 @@ pivot_state_year.coalesce(1).write.option("header","true").option("sep",",").for
 // +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
 
 
-//NAICS trend 
+//get NAICS trend 
 val pivot_NAICS_year = cdata.withColumn("Employer", processCompanyUDF('Employer)).withColumn("Employer", processCompanyHelperUDF('Employer)).groupBy("NAICS").pivot("Fiscal Year").sum("Initial Approvals").sort(col("2019").desc)
 pivot_NAICS_year.coalesce(1).write.option("header","true").option("sep",",").format("csv").save("data/H1B_pivot_NAICS_year")
 // scala> pivot_NAICS_year.show
@@ -193,7 +216,7 @@ pivot_NAICS_year.coalesce(1).write.option("header","true").option("sep",",").for
 // |   22|  435|  298|  286|  302|  244|  218|  210|  213|  162|  190|  294|
 // +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
 
-//AR_Employer_NAICS
+//get application rate groupby NAICS and employer
 val AR_Year_NAICS_Employer = cdata.withColumn("Employer", processCompanyUDF('Employer)).withColumn("Employer", processCompanyHelperUDF('Employer)).filter(col("Fiscal Year")>2011).groupBy("Fiscal Year","NAICS","Employer").sum("Initial Approvals","Initial Denials").withColumn("ApprovalRate", col("sum(Initial Approvals)")/(col("sum(Initial Approvals)")+col("sum(Initial Denials)"))).sort(col("sum(Initial Approvals)").desc).na.drop.filter(col("ApprovalRate") > 0).filter(col("sum(Initial Approvals)") > 10)
 AR_Year_NAICS_Employer.coalesce(1).write.option("header","true").option("sep",",").format("csv").save("data/H1B_AR_Year_NAICS_Employer")
 //AR_Year_NAICS_Employer.show(false)

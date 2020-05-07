@@ -1,8 +1,9 @@
 import spark.implicits._
 
 def processCompany(text: String): String = {
+    //the function will use regexp to normalize company name
     var lower = text.toLowerCase()
-    var symbols = """[\.&,-/\*^@#&$%!\?]""".r//deal with space!
+    var symbols = """[\.&,-/\*^@#&$%!\?]""".r
     lower = symbols.replaceAllIn(lower, "")
     
     var paren = """\(.*\)""".r
@@ -22,6 +23,7 @@ def processCompany(text: String): String = {
     return lower.trim()
 }
 def processCompanyHelper(text: String): String = {
+    //the function will use contain function to further normalize the company name that is not normalized throught the previous function.
     val text1 = text.toLowerCase()
     val text2 = if (text1.contains("amazon")) "amazon" else text1
     val text3 = if (text2.contains("google")) "google" else text2
@@ -37,6 +39,8 @@ def processCompanyHelper(text: String): String = {
 
     return text10
 }
+
+//transfer functions into udf
 import org.apache.spark.sql.functions.udf
 val processCompanyUDF = udf(processCompany _)
 val processCompanyHelperUDF = udf(processCompanyHelper _)
@@ -55,7 +59,7 @@ import org.apache.spark.sql.types.StringType
 import org.apache.spark.sql._
 
 
-
+//get skill data frame
 val skillParsed = skillRdd.map(line => line.replace("(", "").replace(")", "").split(","))
 val skill_rowRDD = skillParsed.map(line => Row(processCompany(line(0)), line(1),line(2),line(3)))
 val skillSchema = List(
@@ -87,6 +91,7 @@ h1b_skill.persist
 import scala.collection.mutable.HashMap
 import scala.collection.mutable.ListBuffer
 def parseSkills2(text: String): String = {
+    //get skill groups
     val bitmask = text.toInt
     var ret = new ListBuffer[String]()
     var a = 0;
@@ -149,8 +154,11 @@ Skills_h1b.coalesce(1).write.option("header","true").option("sep",",").format("c
 // |          DevOp|  2652.25|
 // +---------------+---------+
 
+
+
 //Cloud computing
 def parseSkills3(text: String): String = {
+    //get skill groups
     val bitmask = text.toInt
     var ret = new ListBuffer[String]()
     var a = 0;
@@ -181,6 +189,7 @@ CC_h1b.coalesce(1).write.option("header","true").option("sep",",").format("csv")
 
 //Big data skills
 def parseSkills4(text: String): String = {
+    //get skill groups
     val bitmask = text.toInt
     var ret = new ListBuffer[String]()
     var hm = HashMap(3 -> "Kafka", 4 -> "Elasticsearch", 5 -> "Spark", 6 -> "Hadoop", 7 -> "MapReduce")
@@ -208,6 +217,7 @@ BD_h1b.coalesce(1).write.option("header","true").option("sep",",").format("csv")
 
 //DevOps
 def parseSkills5(text: String): String = {
+    //get skill groups
     val bitmask = text.toInt
     var ret = new ListBuffer[String]()
     var hm = HashMap(8 -> "Docker", 9 -> "Kubernetes", 10 -> "Jenkins", 11 -> "Maven")
@@ -235,6 +245,7 @@ Docker_h1b.coalesce(1).write.option("header","true").option("sep",",").format("c
 
 //Database
 def parseSkills6(text: String): String = {
+    //get skill groups
     val bitmask = text.toInt
     var ret = new ListBuffer[String]()
     var a = 0;
@@ -270,6 +281,7 @@ DB_h1b.coalesce(1).write.option("header","true").option("sep",",").format("csv")
 
 //Back-end
 def parseSkills7(text: String): String = {
+    //get skill groups
     val bitmask = text.toInt
     var ret = new ListBuffer[String]()
     var a = 0;
@@ -309,6 +321,7 @@ backend_h1b.coalesce(1).write.option("header","true").option("sep",",").format("
 
 //front-end
 def parseSkills8(text: String): String = {
+    //get skill groups
     val bitmask = text.toInt
     var ret = new ListBuffer[String]()
     var a = 0;
@@ -338,6 +351,7 @@ frontend_h1b.coalesce(1).write.option("header","true").option("sep",",").format(
 
 //MLDL
 def parseSkills9(text: String): String = {
+    //get skill groups
     val bitmask = text.toInt
     var ret = new ListBuffer[String]()
     var a = 0;
