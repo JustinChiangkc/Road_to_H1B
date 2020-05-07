@@ -233,13 +233,8 @@ def lrWithSVMFormat(salary_acceptance: DataFrame, year_array: Array[Any]) = {
 
         /*
         Objective -> test the Credibility of linear equation [salary, acceptance rate]
-        Method -> test the slope of linear equation is siginificant or not
-
-        a (1−α)100% confidence interval for β [two-tailed t test]:
-            null hypothesis -> H0 : β=β0  [β0 : the slope we got]
-            alternative hypotheses -> HA : β≠β0, HA:β<β0, HA:β>β0  
-            test statistic -> t = ^β−β0 / [(MSE/∑(xi−x)^2)**2]
-            α -> 0.05
+        Method -> test the linear equation we get is siginificant or not
+        α -> 0.05
         */
         
         // p-value
