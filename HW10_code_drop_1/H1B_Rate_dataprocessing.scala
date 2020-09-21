@@ -40,17 +40,37 @@ val AR_State = spark.read.options(Map("inferSchema"->"true","delimiter"->",","he
 val AR_NAICS = spark.read.options(Map("inferSchema"->"true","delimiter"->",","header"->"true")).csv("final_project/data/AR_NAICS2")
 
 
-def get_trend_Employer(Employer:String, df:DataFrame): = DataFrame{
-    val trend:DataFrame = df.filter(col("Employer" === Employer)).groupBy("Fiscal Year").sum("TotalApproval","TotalDenial","TotalApply").withColumn("ApprovalRate", col("sum(TotalApproval)")/col("sum(TotalApply)")).sort(col("Fiscal Year").desc) 
+def get_trend_Employer(Employer:String, df:DataFrame): DataFrame = {
+    val trend:DataFrame = df.filter(col("Employer") === Employer)
+    .groupBy("Fiscal Year").sum("Initial Approvals","Initial Denials")
+    .withColumn("ApprovalRate", col("sum(Initial Approvals)")/(col("sum(Initial Approvals)")+col("sum(Initial Denials)")))
+    .sort(col("Fiscal Year").desc) 
     return trend
 }
 
-def get_trend_State(State:String, df:DataFrame): = DataFrame{
-    val trend:DataFrame = df.filter(col("State" === State)).groupBy("Fiscal Year").sum("TotalApproval","TotalDenial","TotalApply").withColumn("ApprovalRate", col("sum(TotalApproval)")/col("sum(TotalApply)")).sort(col("Fiscal Year").desc) 
+def get_trend_State(State:String, df:DataFrame): DataFrame = {
+    val trend:DataFrame = df.filter(col("State") === State)
+    .groupBy("Fiscal Year").sum("Initial Approvals","Initial Denials")
+    .withColumn("ApprovalRate", col("sum(Initial Approvals)")/(col("sum(Initial Approvals)")+col("sum(Initial Denials)")))
+    .sort(col("Fiscal Year").desc) 
     return trend
 }
 
-def get_trend_NAICS(NAICS:String, df:DataFrame): = DataFrame{
-    val trend:DataFrame = df.filter(col("NAICS" === NAICS)).groupBy("Fiscal Year").sum("TotalApproval","TotalDenial","TotalApply").withColumn("ApprovalRate", col("sum(TotalApproval)")/col("sum(TotalApply)")).sort(col("Fiscal Year").desc) 
+def get_trend_NAICS(NAICS:String, df:DataFrame): DataFrame = {
+    val trend:DataFrame = df.filter(col("NAICS") === NAICS)
+    .groupBy("Fiscal Year").sum("Initial Approvals","Initial Denials")
+    .withColumn("ApprovalRate", col("sum(Initial Approvals)")/(col("sum(Initial Approvals)")+col("sum(Initial Denials)")))
+    .sort(col("Fiscal Year").desc) 
     return trend
 }
+// def htmlCleanse(df: DataFrame, columns: Array[String]): DataFrame = {
+//     var retDF = df 
+//     for(i <- 0 to columns.size-1){
+//       val name = columns(i)
+//       retDF = retDF.withColumn(name,regexp_replace(col(name),"<(?:\"[^\"]*\"['\"]*|'[^']*'['\"]*|[^'\">])+>",""))
+//                    .withColumn(name,regexp_replace(col(name),"&quot;","'"))
+//                    .withColumn(name,regexp_replace(col(name),"&#160;"," "))
+//                    .withColumn(name,regexp_replace(col(name),"&#58;",":"))
+//     }
+//     retDF
+//   }

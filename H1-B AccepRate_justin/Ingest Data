@@ -1,8 +1,0 @@
-Local:
-scp h1b_datahubexport-09to19.zip kc4200@dumbo.es.its.nyu.edu:/home/kc4200/final_project
-
-Dumbo:
-unzip h1b_datahubexport-09to19.zip 
-hdfs dfs -mkdir final_project
-hdfs dfs -mkdir final_project/data
-hdfs dfs -put h1b* final_project/data

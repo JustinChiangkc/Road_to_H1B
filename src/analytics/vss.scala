@@ -17,7 +17,7 @@ def parseSkills(text: String): String = {
     }
     return ret.mkString(",")
 }
-
+val parsed = data.map(line => line.replace("(", "").replace(")", "").split(",")).map(line => (line(0), parseSkills(line(1)).split(",")))
 val parsed = data.map(line => line.split(",")).map(line => (line(0), parseSkills(line(1)).split(",")))
 val splitted = parsed.flatMap{
     case (salary, skills) => for (skill <- skills) yield (skill, salary)

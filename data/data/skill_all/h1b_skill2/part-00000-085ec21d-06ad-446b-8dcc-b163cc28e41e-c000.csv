@@ -1,0 +1,685 @@
+Employer,sum(Initial Approvals),sum(Initial Denials),TotalApply,Title,PL,Degree
+holonis,0,0,0,Software Engineer,328,0
+cognizant,33487,6048,39535,Data Analyst,256,0
+nbcuniversal media,38,0,38,Web Developer,20,1
+deutsche bank,0,0,0,None,2,2
+docusign,48,0,48,Software Engineer,384,6
+remedy partners,0,0,0,Data Scientist,260,0
+brandes,0,0,0,Software Engineer,154,2
+leapyear,0,0,0,Software Engineer,0,0
+pds,13,0,13,Data Scientist,0,2
+pds,13,0,13,Data Analyst,0,1
+trader interactive,7,2,9,Data Scientist,260,0
+aton sucharow,1,0,1,Data Analyst,256,1
+icf,76,8,84,Data Analyst,0,1
+jpi,7,1,8,Data Analyst,0,2
+workiva,5,0,5,Software Engineer,156,2
+intelliswiftware,102,14,116,Web Developer,16,0
+syrinx,6,0,6,Data Analyst,462,0
+us,73,24,97,Software Engineer,256,0
+air methods,2,0,2,Data Analyst,260,1
+microsoft,10009,177,10186,Data Scientist,388,0
+microsoft,10009,177,10186,Software Engineer,128,0
+microsoft,10009,177,10186,Data Analyst,260,0
+tutorme,0,1,1,Data Analyst,324,0
+d cube analytics,1,0,1,Data Scientist,70,7
+ics,68,17,85,Software Engineer,380,1
+lattice,4,1,5,Software Engineer,276,0
+life360,9,0,9,Data Analyst,260,0
+life360,9,0,9,Software Engineer,8,0
+smartsheet,7,0,7,Data Analyst,260,1
+remax,0,0,0,Data Scientist,4,0
+revspring,2,1,3,Software Engineer,264,1
+verily life sciences,5,1,6,Software Engineer,264,1
+wolters kluwer,3,0,3,Software Engineer,144,0
+coinbase,10,2,12,Data Analyst,256,0
+extrahop,2,0,2,Software Engineer,85,0
+mediamath,48,2,50,Data Analyst,260,2
+northwell health,92,1,93,Software Engineer,404,0
+northwell health,92,1,93,Data Scientist,260,0
+sharp healthcare,3,0,3,Web Developer,280,2
+blackstone,5,0,5,Software Engineer,400,0
+braze,2,0,2,Web Developer,80,0
+new york,274,2,276,Web Developer,16,0
+vanderhouwen,1,3,4,Data Scientist,4,0
+vanderhouwen,1,3,4,Web Developer,0,0
+ocrolus,4,0,4,None,260,0
+orbitpeople,2,2,4,Web Developer,16,0
+spotify,57,3,60,Machine Learning Engineer,76,0
+spotify,57,3,60,Data Scientist,332,0
+spotify,57,3,60,None,80,0
+crowdstrike,6,0,6,Data Scientist,68,0
+pure storage,152,4,156,Software Engineer,14,0
+zulily,43,1,44,Data Scientist,4,4
+avenue code,33,5,38,Data Scientist,260,1
+cnn,3,0,3,Data Scientist,260,4
+lockheed martin,3,0,3,Software Engineer,0,0
+conversion,1,0,1,Web Developer,16,0
+epic games,22,1,23,Data Scientist,388,0
+eversight,2,0,2,Data Scientist,68,0
+imdbcom,11,0,11,Software Engineer,138,0
+protingent,0,0,0,Software Engineer,260,0
+teleion,1,0,1,Software Engineer,82,3
+alignment healthcare,0,0,0,None,268,2
+alignment healthcare,0,0,0,Software Engineer,144,0
+beyondsoft,54,9,63,Web Developer,80,0
+planet pharma,3,0,3,Data Analyst,0,0
+kargo,14,1,15,Software Engineer,324,0
+symetra,0,0,0,Web Developer,0,0
+twitter,474,6,480,Machine Learning Engineer,76,6
+twitter,474,6,480,None,16,0
+piack,3,0,3,Software Engineer,12,1
+tranzeal,9,7,16,Web Developer,272,0
+access,27,37,64,Web Developer,16,0
+liferay,7,0,7,Software Engineer,16,1
+ping identity,1,0,1,Web Developer,16,0
+smartthings,5,1,6,Data Scientist,327,0
+surveymonkey,19,3,22,Software Engineer,324,2
+cerberus capital management,5,2,7,Machine Learning Engineer,260,6
+of illinois at chicago,52,1,53,Web Developer,0,0
+johnson  wales,1,0,1,Data Analyst,268,0
+millennium health,3,0,3,Software Engineer,448,0
+parexel,59,1,60,Software Engineer,264,2
+pocket gems,104,2,106,Software Engineer,95,7
+ubiquiti,21,1,22,Software Engineer,5,2
+ally,7,1,8,Software Engineer,75,2
+amazon,8274,107,8381,Data Scientist,271,6
+amazon,8274,107,8381,Software Engineer,475,2
+broadcom,590,5,595,Data Scientist,70,6
+california institute of the arts,5,0,5,Web Developer,16,3
+infinity,50,5,55,Web Developer,268,1
+tae,1,0,1,Web Developer,256,0
+tae,1,0,1,Data Scientist,4,6
+the motley fool,0,0,0,Web Developer,16,0
+zacks investment research,3,0,3,Web Developer,260,0
+flexport,17,3,20,Data Analyst,260,0
+mitchell martin,0,0,0,Software Engineer,20,0
+netflix,106,4,110,None,0,0
+trimble,29,1,30,Software Engineer,390,0
+apple,4780,69,4849,Machine Learning Engineer,14,4
+apple,4780,69,4849,Data Scientist,256,6
+apple,4780,69,4849,Web Developer,20,0
+apple,4780,69,4849,Software Engineer,333,6
+apple,4780,69,4849,None,88,0
+paypal,1081,26,1107,Software Engineer,334,0
+paypal,1081,26,1107,Data Scientist,76,4
+tata,33145,2720,35865,Web Developer,384,0
+cabot,16,1,17,Software Engineer,400,0
+emonics,11,3,14,Data Scientist,334,0
+future motion,1,0,1,Web Developer,20,1
+hitachi vantara,19,3,22,None,268,0
+mobilize,30,21,51,Software Engineer,0,0
+monster,1,0,1,Data Scientist,260,0
+northwestern,478,0,478,Software Engineer,260,1
+the wonderful,3,1,4,Data Analyst,256,3
+tripadvisor,131,7,138,Data Scientist,260,4
+avacend,0,3,3,Web Developer,16,0
+glowforge,1,0,1,Data Analyst,0,0
+tusimple,50,5,55,None,7,4
+tusimple,50,5,55,Data Analyst,260,0
+athenahealth,19,1,20,Data Scientist,0,7
+godaddy,38,3,41,Software Engineer,276,0
+keypath education,0,0,0,Web Developer,336,0
+pitchbook,1,0,1,Data Analyst,260,1
+silicon,27,15,42,Software Engineer,5,2
+salesforce,274,12,286,Data Scientist,12,2
+postmates,25,1,26,Web Developer,20,0
+dog,21,1,22,Data Scientist,260,7
+mitchell,49,1,50,Machine Learning Engineer,268,0
+ascend analytics,10,1,11,Web Developer,276,1
+hagerty,2,0,2,Data Analyst,256,0
+touchpoints,10,0,10,Data Analyst,8,0
+snapdocs,0,0,0,Software Engineer,328,1
+allscripts,0,0,0,Software Engineer,340,1
+fast enterprises,32,2,34,Software Engineer,256,3
+nyu langone health,5,3,8,Data Analyst,0,0
+one,8,2,10,Software Engineer,135,1
+vtekh,60,6,66,Web Developer,272,0
+northeastern,175,4,179,Data Analyst,256,1
+tamr,6,1,7,Data Scientist,332,6
+verizon,187,6,193,Data Analyst,0,0
+ocean spray cranberries,8,0,8,Data Analyst,260,1
+acara,0,0,0,None,0,0
+goldman sachs,744,67,811,Web Developer,344,0
+nirvana enterprises,27,20,47,Data Analyst,260,2
+nirvana enterprises,27,20,47,Data Scientist,4,0
+san diego state,16,0,16,Data Analyst,16,1
+serverlogic,6,0,6,Software Engineer,464,0
+indigo slate,3,0,3,Data Scientist,68,2
+yardi,16,1,17,Data Analyst,256,0
+dermalogica,1,0,1,Data Analyst,256,0
+cignex matics,72,1,73,Web Developer,17,0
+netpace,27,3,30,Data Analyst,0,0
+nnit,1,0,1,Data Analyst,256,0
+perficient,230,14,244,Web Developer,340,1
+perficient,230,14,244,None,0,0
+point72,9,1,10,Data Scientist,260,0
+quinstreet,29,2,31,Machine Learning Engineer,68,2
+options,1,1,2,Web Developer,400,0
+aditi,29,2,31,Data Analyst,0,0
+cogo,9,2,11,Data Analyst,0,1
+yext,17,0,17,Software Engineer,78,1
+capacity,1,0,1,Data Analyst,256,1
+qstride,1,0,1,Web Developer,16,0
+qstride,1,0,1,Machine Learning Engineer,8,7
+bricks,35,1,36,Web Developer,80,0
+expedia,481,8,489,Software Engineer,268,0
+prime team partners,1,0,1,Web Developer,0,0
+centurylink,3,3,6,Data Scientist,78,4
+mthree,0,0,0,Software Engineer,280,0
+activecampaign,0,0,0,Data Scientist,260,0
+krg,6,2,8,Data Scientist,260,0
+norvax,5,0,5,Software Engineer,0,3
+of colorado,273,5,278,Data Scientist,271,0
+egain,25,0,25,Web Developer,80,2
+higher ground education,1,0,1,Web Developer,16,1
+uptake,23,10,33,Data Scientist,79,4
+fidelity investments,335,5,340,Data Scientist,68,0
+fidelity investments,335,5,340,Software Engineer,456,0
+fidelity investments,335,5,340,Data Analyst,324,2
+roku,16,1,17,Data Analyst,260,0
+roku,16,1,17,Web Developer,16,0
+bank of,43,0,43,Machine Learning Engineer,324,4
+cbs interactive,33,2,35,Data Scientist,260,0
+dunn,13,0,13,None,16,0
+lumere,0,0,0,Data Scientist,340,0
+pinterest,145,4,149,Software Engineer,0,0
+pinterest,145,4,149,Machine Learning Engineer,0,0
+arthrex,5,0,5,Web Developer,401,0
+caliber home loans,15,0,15,Data Analyst,64,0
+insulet,4,0,4,Web Developer,80,0
+walgreen co,27,0,27,Data Scientist,260,0
+ektello,6,5,11,Data Scientist,388,0
+ektello,6,5,11,Data Analyst,0,0
+quantitative,1,0,1,Web Developer,276,0
+quantitative,1,0,1,Software Engineer,92,6
+formation,2,0,2,Data Scientist,64,4
+partners,47,14,61,Data Scientist,324,4
+sensory,3,2,5,Software Engineer,14,0
+xifin,6,0,6,Data Scientist,256,1
+abbott,0,0,0,Software Engineer,4,0
+grand rounds,7,1,8,Machine Learning Engineer,332,6
+mp biomedicals,0,0,0,Data Scientist,0,4
+northrop grumman,0,0,0,Software Engineer,268,5
+onewire,1,0,1,Software Engineer,142,0
+safran,2,0,2,Software Engineer,5,0
+colgatepalmolive,33,1,34,Software Engineer,1,1
+lorven,25,11,36,Web Developer,24,0
+odin,0,0,0,Software Engineer,400,1
+cisco,3172,85,3257,Software Engineer,263,0
+cisco,3172,85,3257,Data Scientist,260,2
+lyft,131,2,133,Data Scientist,260,0
+lyft,131,2,133,Software Engineer,324,0
+qualcomm,3155,45,3200,Software Engineer,15,3
+qualcomm,3155,45,3200,Machine Learning Engineer,6,3
+saic,1,0,1,Web Developer,80,0
+4catalyzer,0,0,0,Data Scientist,68,0
+affirma,4,1,5,Data Analyst,260,0
+chan zuckerberg initiative,16,1,17,Data Analyst,260,0
+etsy,28,2,30,Software Engineer,344,0
+blackline,3,0,3,Data Scientist,324,4
+kyriba,5,1,6,Software Engineer,344,0
+tesla,469,27,496,Web Developer,284,0
+tesla,469,27,496,Data Analyst,260,0
+corelogic,5,0,5,Software Engineer,64,0
+corelogic,5,0,5,None,276,0
+delta computer,5,0,5,Data Scientist,260,1
+pampered chef,0,0,0,Software Engineer,320,0
+softhq,88,23,111,Data Analyst,264,0
+forgerock,6,0,6,Machine Learning Engineer,76,4
+ssb,13,6,19,Software Engineer,384,0
+warner bros,5,0,5,Data Analyst,260,0
+studycom,2,0,2,Data Analyst,270,6
+apex,231,91,322,Software Engineer,260,0
+apex,231,91,322,Web Developer,24,3
+applico,6,1,7,Data Analyst,320,0
+blue corona,1,0,1,None,0,0
+feather,26,2,28,Data Scientist,340,0
+suffolk construction,3,0,3,Data Analyst,260,0
+accenture,17256,1243,18499,None,332,0
+applied materials,582,28,610,Software Engineer,0,1
+bloomberg,1320,26,1346,Software Engineer,143,7
+bloomberg,1320,26,1346,Data Analyst,276,1
+doordash,21,0,21,Software Engineer,320,6
+veea,1,0,1,Software Engineer,332,0
+redfin,20,1,21,Data Analyst,256,0
+masimo,29,1,30,Machine Learning Engineer,6,6
+micron,703,18,721,Data Scientist,7,4
+zipline,0,0,0,Software Engineer,0,0
+mars,30,5,35,Data Scientist,324,0
+atomic,0,0,0,Data Scientist,64,0
+commscope,7,0,7,Software Engineer,3,1
+ipc,22,0,22,Software Engineer,30,0
+robert walters,1,0,1,Machine Learning Engineer,324,0
+twitch,2,0,2,Machine Learning Engineer,271,5
+twitch,2,0,2,Data Analyst,256,1
+capital,37,32,69,None,260,0
+elsevier,32,4,36,Software Engineer,64,0
+capital one,604,20,624,Software Engineer,92,0
+fox,0,0,0,Data Scientist,260,0
+vocera,11,1,12,Data Analyst,256,0
+avalara,10,1,11,Software Engineer,200,0
+avalara,10,1,11,Data Analyst,0,0
+experis,636,137,773,Software Engineer,271,0
+experis,636,137,773,Data Analyst,256,1
+experis,636,137,773,Web Developer,400,0
+synapse,15,52,67,Machine Learning Engineer,4,0
+velocity,3,1,4,Web Developer,16,0
+blackrock,13,0,13,Software Engineer,287,0
+murray,1,0,1,Software Engineer,352,0
+ntelicor,5,1,6,Software Engineer,384,0
+anixter,1,0,1,Web Developer,400,0
+komodo health,7,1,8,Data Scientist,332,6
+robert half,11,4,15,Web Developer,280,3
+hill,7,0,7,Data Analyst,0,0
+caissa,1,0,1,Software Engineer,336,0
+canoga perkins,1,0,1,Data Analyst,0,0
+cloud,45,45,90,Data Analyst,0,0
+rylem,0,1,1,Web Developer,80,0
+comcast,0,0,0,Software Engineer,261,0
+dyntek,1,0,1,Data Analyst,256,2
+levi strauss  co,12,0,12,Software Engineer,344,0
+levi strauss  co,12,0,12,Machine Learning Engineer,334,0
+sefas innovation,1,0,1,Software Engineer,284,2
+snap,250,24,274,Data Scientist,260,1
+snap,250,24,274,Software Engineer,334,1
+snap,250,24,274,Machine Learning Engineer,0,4
+specialized bicycle components,7,0,7,Data Scientist,260,0
+starz,0,0,0,Data Scientist,4,7
+sun life,27,0,27,Data Analyst,256,0
+automox,0,0,0,Web Developer,80,0
+front,1,0,1,Data Analyst,256,0
+gibson dunn  crutcher,16,1,17,Data Analyst,384,1
+hawke media,0,1,1,None,16,0
+marchex,5,0,5,Software Engineer,320,0
+prosper marketplace,26,0,26,Data Scientist,260,0
+arm,172,5,177,Software Engineer,2,2
+computershare,3,0,3,Web Developer,464,0
+edo,23,9,32,Data Scientist,4,0
+specialty,2,0,2,Software Engineer,8,0
+costco wholesale,4,1,5,Data Analyst,256,0
+it,402,70,472,Data Analyst,256,0
+wish,0,0,0,Data Scientist,68,0
+wish,0,0,0,Machine Learning Engineer,12,0
+analysis,201,3,204,Data Scientist,260,0
+five9,16,1,17,Web Developer,80,0
+qualtrics,12,1,13,Software Engineer,376,0
+vistaprint,44,1,45,Software Engineer,256,2
+vistaprint,44,1,45,None,0,4
+diversant,117,29,146,Web Developer,16,0
+ar,150,27,177,Software Engineer,394,0
+now,320,8,328,Machine Learning Engineer,280,6
+now,320,8,328,Software Engineer,344,0
+now,320,8,328,Data Analyst,340,2
+now,320,8,328,Data Scientist,28,2
+lancesoft,135,21,156,Software Engineer,15,0
+lancesoft,135,21,156,Data Analyst,256,0
+mail,1,0,1,Data Analyst,324,1
+reebok,18,1,19,Data Analyst,260,0
+capgemini,4634,2108,6742,Web Developer,16,0
+compulink,0,1,1,Machine Learning Engineer,215,4
+ncsoft,0,0,0,Data Analyst,260,0
+mercury insurance,2,1,3,Data Analyst,4,3
+revolut,1,0,1,Data Analyst,260,0
+swinerton,2,0,2,Data Analyst,256,0
+swinerton,2,0,2,Data Scientist,0,0
+the forum,2,0,2,Software Engineer,396,0
+pepsico,69,0,69,Data Analyst,260,2
+quantifind,20,2,22,Data Scientist,332,0
+randstad,237,18,255,Data Analyst,320,1
+stripe,68,3,71,Data Analyst,260,0
+stripe,68,3,71,Data Scientist,260,6
+cylance,5,0,5,Data Scientist,207,4
+forward,2,0,2,Software Engineer,64,3
+logic,379,55,434,Software Engineer,287,2
+quicken loans,89,1,90,Software Engineer,336,0
+spectra logic,3,1,4,Software Engineer,2,0
+antenna,0,0,0,None,16,0
+city of palo alto,0,0,0,Machine Learning Engineer,4,0
+novo nordisk,14,0,14,Data Scientist,4,6
+seated,0,0,0,Software Engineer,72,2
+spark,3,4,7,Software Engineer,96,0
+jpmorgan chase  co,2280,54,2334,Software Engineer,380,1
+arista,207,2,209,Software Engineer,71,7
+eliassen,32,1,33,Web Developer,0,0
+eliassen,32,1,33,Data Analyst,4,0
+everest consultants,5,2,7,Software Engineer,3,1
+insight,20,2,22,Web Developer,0,0
+pfizer,179,3,182,Data Scientist,4,0
+analog devices,246,1,247,Data Scientist,4,3
+current,0,0,0,Software Engineer,0,0
+foundationware,3,0,3,Software Engineer,400,0
+gro intelligence,2,0,2,Web Developer,30,0
+national,91,70,161,Data Scientist,260,0
+nxstage medical,15,0,15,Software Engineer,384,0
+sumeru,4,1,5,Data Analyst,264,0
+wise,8,3,11,Software Engineer,128,0
+epsilon,1,0,1,Software Engineer,284,2
+nbs,1,0,1,Data Analyst,256,2
+axon,22,3,25,Software Engineer,348,0
+invision,1,0,1,Data Analyst,256,1
+liberty mutual insurance,9,0,9,Data Scientist,4,0
+liberty mutual insurance,9,0,9,Software Engineer,16,0
+thales,3,1,4,Software Engineer,76,0
+zendesk,39,2,41,Software Engineer,84,0
+axos bank,0,0,0,Data Analyst,260,0
+axos bank,0,0,0,Web Developer,144,0
+change healthcare,11,0,11,Data Analyst,384,0
+getty images,4,0,4,Data Scientist,260,6
+opex,9,0,9,Web Developer,280,0
+hcl,9317,854,10171,Data Scientist,4,4
+mastercard,42,0,42,Software Engineer,72,0
+sapphire,68,17,85,Software Engineer,16,0
+italent,86,26,112,Data Analyst,260,6
+merkle,86,1,87,Software Engineer,76,0
+qsc,2,0,2,Web Developer,18,0
+ve,13,9,22,None,0,0
+605,5,0,5,Data Scientist,332,0
+blink health,6,1,7,Data Scientist,256,3
+mediamonks,1,0,1,None,0,2
+paladin,0,0,0,Web Developer,0,0
+plex,2,1,3,Web Developer,0,0
+virtual,3,1,4,Web Developer,336,1
+virtual,3,1,4,Web Developer,336,1
+city of hope,0,2,2,Data Analyst,260,0
+east west bank,86,6,92,Data Analyst,260,0
+rhythmone,2,0,2,Data Analyst,256,0
+abiomed,20,0,20,Data Analyst,343,4
+asana,28,1,29,Software Engineer,68,0
+asana,28,1,29,Web Developer,0,0
+traction,0,0,0,Web Developer,16,0
+veritone,0,0,0,Data Analyst,0,1
+eagleview,0,0,0,Software Engineer,16,0
+square,157,6,163,Software Engineer,8,0
+aptiv,72,1,73,Machine Learning Engineer,6,4
+multimedia,1,0,1,None,0,0
+promedia,1,0,1,Data Analyst,0,3
+promedia,1,0,1,Data Analyst,0,3
+quad,28,15,43,None,64,0
+rational,1,0,1,Data Analyst,0,0
+reddit,8,0,8,Data Scientist,4,0
+reddit,8,0,8,Machine Learning Engineer,0,0
+niantic,19,0,19,Software Engineer,130,1
+dxc,16,4,20,Web Developer,344,0
+expedite,14,1,15,Web Developer,128,0
+virginia,53,2,55,Software Engineer,284,0
+zenith,76,27,103,None,260,1
+hearts  science,1,0,1,Data Scientist,324,6
+rheos medicines,0,0,0,Data Scientist,268,7
+spireon,1,0,1,Software Engineer,280,0
+keyme,9,1,10,Machine Learning Engineer,4,0
+leo,2,1,3,Data Analyst,0,1
+mckinsey,833,94,927,Data Analyst,324,6
+mckinsey,833,94,927,Software Engineer,24,0
+millenniumsoft,3,1,4,Data Analyst,0,2
+epitec,132,50,182,Software Engineer,8,3
+groove health,2,0,2,Software Engineer,388,0
+cercacor oratories,6,0,6,Data Scientist,324,4
+cercacor oratories,6,0,6,Software Engineer,4,0
+green key,5,4,9,Data Scientist,4,4
+automattic,3,0,3,Machine Learning Engineer,324,0
+terumo bct,7,1,8,Data Scientist,324,6
+abbvie,195,6,201,Data Scientist,260,0
+anveta,69,8,77,Web Developer,144,2
+loln,16,1,17,Data Analyst,260,1
+netskope,30,7,37,Data Scientist,68,4
+curate partners,1,0,1,Data Analyst,256,2
+tmobile,141,7,148,Software Engineer,79,0
+ust,2294,171,2465,Web Developer,24,0
+western asset management,12,0,12,Data Analyst,324,0
+aim,0,0,0,Data Analyst,256,0
+belkin,6,0,6,Web Developer,16,0
+mumba,1,0,1,Web Developer,88,0
+osisoft,73,2,75,Web Developer,408,0
+intelligence,91,8,99,Software Engineer,2,0
+rbc capital markets,156,11,167,Data Analyst,0,2
+tiger analytics,30,3,33,Data Scientist,324,0
+focuskpi,11,6,17,Data Analyst,20,0
+focuskpi,11,6,17,Data Scientist,260,0
+maxonic,12,4,16,Data Scientist,260,0
+milestone,16,11,27,Web Developer,16,1
+milestone,16,11,27,Data Analyst,256,0
+t2,1,0,1,Web Developer,276,0
+uline,4,0,4,Data Analyst,256,0
+vertical trail,1,0,1,Software Engineer,276,0
+n express,149,5,154,Machine Learning Engineer,332,1
+n express,149,5,154,Web Developer,80,0
+of washington,334,3,337,Web Developer,400,2
+triad,1,0,1,Machine Learning Engineer,6,0
+pega,19,1,20,Software Engineer,72,0
+pega,19,1,20,Data Analyst,0,0
+pepperdine,5,1,6,Web Developer,16,1
+synergy interactive,0,0,0,None,0,0
+synergy interactive,0,0,0,Web Developer,80,0
+bigmarker,0,1,1,Software Engineer,336,0
+coursera,45,3,48,Data Scientist,260,0
+general atomics,2,0,2,Data Scientist,0,0
+general atomics,2,0,2,Software Engineer,3,0
+arrow electronics,48,6,54,Web Developer,272,0
+street diligence,2,0,2,Software Engineer,476,0
+amd,1,0,1,Machine Learning Engineer,7,4
+tapad,12,0,12,Software Engineer,332,0
+veyo,5,0,5,Data Scientist,420,0
+veyo,5,0,5,None,436,0
+veyo,5,0,5,Software Engineer,384,1
+affinity,28,1,29,Data Scientist,260,0
+chase,1,0,1,Software Engineer,280,1
+nec,1,0,1,Web Developer,272,1
+glanbia,5,0,5,Web Developer,16,0
+itco,1,0,1,Web Developer,16,2
+juniper,760,17,777,Data Scientist,76,7
+solomon page,6,3,9,Data Analyst,0,1
+hyperscience,0,0,0,Machine Learning Engineer,79,0
+prudential,7,1,8,Software Engineer,256,0
+saggezza,32,1,33,Web Developer,24,0
+sony pictures,4,0,4,Software Engineer,24,2
+spectrum,47,10,57,Data Analyst,256,0
+spectrum,47,10,57,Data Scientist,30,2
+weee,6,7,13,Data Analyst,260,0
+conversant,33,28,61,Web Developer,276,0
+conversant,33,28,61,Software Engineer,270,0
+conversant,33,28,61,Data Scientist,0,4
+apn,13,2,15,Data Scientist,12,0
+apn,13,2,15,Web Developer,0,0
+big nerd ranch,0,0,0,Web Developer,40,0
+boyd,1,0,1,Data Analyst,0,0
+innovato,0,1,1,Data Analyst,260,0
+netapp,569,16,585,Software Engineer,4,4
+pearson,0,0,0,Data Scientist,4,0
+trend micro,37,1,38,Web Developer,16,2
+1,4,2,6,Web Developer,23,2
+hubspot,18,2,20,Data Analyst,320,0
+the trade desk,8,0,8,Data Scientist,332,0
+g3,6,3,9,Web Developer,276,0
+sophos,20,0,20,Software Engineer,8,0
+xaxis,25,0,25,Software Engineer,20,0
+concurrency,2,1,3,Data Scientist,260,0
+scribd,9,1,10,Machine Learning Engineer,76,0
+spotx,0,0,0,Web Developer,72,1
+assetmark,2,0,2,Data Analyst,64,0
+foundation medicine,17,1,18,Software Engineer,80,2
+foundation medicine,17,1,18,Data Scientist,260,6
+hp,86,33,119,Data Scientist,4,6
+w3,50,14,64,Web Developer,412,2
+western,262,2,264,Data Scientist,0,0
+dynatrace,22,5,27,Data Scientist,68,0
+e2open,36,3,39,Software Engineer,24,0
+national funding,0,0,0,Software Engineer,448,2
+upserve,4,0,4,Web Developer,16,0
+ascensus,11,1,12,Web Developer,24,0
+bose,57,1,58,Data Analyst,256,2
+rangam consultants,12,2,14,Web Developer,16,0
+rapid7,14,0,14,Software Engineer,328,2
+dropbox,162,11,173,Machine Learning Engineer,7,6
+samsung electronics,96,3,99,Data Scientist,7,4
+samsung electronics,96,3,99,Software Engineer,3,4
+samsung electronics,96,3,99,Machine Learning Engineer,6,6
+brown,78,1,79,Web Developer,272,0
+charles river,25,0,25,Web Developer,408,0
+matter,0,0,0,Web Developer,272,1
+wakefern food,0,0,0,Data Analyst,256,0
+zocdoc,18,0,18,Software Engineer,192,0
+blue shield of california,20,1,21,Web Developer,68,0
+illumina,187,8,195,Data Analyst,276,2
+illumina,187,8,195,None,4,4
+illumina,187,8,195,Software Engineer,131,2
+illumina,187,8,195,Data Scientist,428,4
+innerworkings,3,0,3,None,260,0
+venmo,1,0,1,Software Engineer,332,0
+aisera,3,0,3,Machine Learning Engineer,15,0
+alexander,0,1,1,Web Developer,16,0
+alexander,0,1,1,Data Analyst,0,0
+boeing,10,0,10,Software Engineer,271,6
+populus,944,316,1260,Software Engineer,448,0
+shutterstock,22,1,23,Software Engineer,348,0
+f5,142,8,150,Software Engineer,16,1
+mas,1,6,7,Web Developer,28,0
+abb,162,6,168,Software Engineer,11,0
+johnson  johnson,18,0,18,Data Scientist,332,4
+teladoc health,4,0,4,Data Analyst,256,0
+the new york times,52,1,53,Data Analyst,260,0
+the new york times,52,1,53,Software Engineer,268,7
+time,13,1,14,Software Engineer,80,0
+casa,29,0,29,Software Engineer,32,0
+neurocrine biosciences,1,0,1,Data Scientist,64,0
+stenograph,1,0,1,Software Engineer,0,1
+audible,168,4,172,Software Engineer,72,0
+audible,168,4,172,Data Scientist,324,1
+trinet,23,2,25,Web Developer,80,1
+abacus insights,0,0,0,Data Scientist,284,6
+aquent,18,2,20,Web Developer,144,0
+minuteman,1,0,1,Web Developer,16,2
+platform science,0,0,0,Software Engineer,284,0
+york,0,0,0,Software Engineer,392,0
+disys,28,0,28,Software Engineer,16,1
+jacobs levy equity management,0,0,0,Software Engineer,391,4
+inspire,3,0,3,Data Scientist,260,0
+intuit,697,11,708,Software Engineer,0,0
+intuit,697,11,708,Data Scientist,0,0
+intuit,697,11,708,Data Analyst,0,0
+n medical association,1,0,1,Software Engineer,264,1
+the judge,0,0,0,Web Developer,280,0
+hashi,2,0,2,Software Engineer,8,0
+iku,1,1,2,Data Scientist,341,2
+novartis,12,1,13,Machine Learning Engineer,324,6
+phyn,3,0,3,Web Developer,16,0
+yieldmo,5,1,6,Software Engineer,336,0
+dexcom,17,1,18,Data Scientist,260,6
+saioint,16,0,16,Software Engineer,76,0
+second spectrum,1,1,2,Machine Learning Engineer,4,0
+creative,32,5,37,Data Analyst,0,0
+enterprise,194,110,304,Web Developer,16,2
+nextgen,109,104,213,Web Developer,92,3
+nextgen,109,104,213,Software Engineer,476,0
+raytheon,1,0,1,Web Developer,276,0
+akqa,45,2,47,Data Scientist,4,4
+applovin,6,2,8,Machine Learning Engineer,74,3
+carbon health,0,0,0,Software Engineer,336,6
+moda operandi,9,0,9,Data Analyst,276,0
+nosoft,341,62,403,Data Analyst,256,0
+slack,14,0,14,Software Engineer,269,1
+slack,14,0,14,Data Scientist,4,6
+tera,0,0,0,Data Analyst,272,0
+tera,0,0,0,Software Engineer,263,0
+tory burch,14,0,14,Data Scientist,260,4
+transperfect,1,0,1,Software Engineer,280,0
+colera,197,33,230,Web Developer,0,0
+colera,197,33,230,Data Analyst,256,0
+discover,6,3,9,None,0,0
+dow jones,12,0,12,Software Engineer,8,0
+protiviti,37,2,39,Machine Learning Engineer,287,0
+remy,6,0,6,Software Engineer,2,0
+belcan,28,2,30,Software Engineer,284,1
+cotiviti,17,0,17,Data Scientist,324,2
+,1726,504,2230,Software Engineer,280,0
+,1726,504,2230,Web Developer,479,3
+,1726,504,2230,Web Developer,23,0
+,1726,504,2230,Web Developer,384,0
+,1726,504,2230,None,0,0
+,1726,504,2230,Software Engineer,476,3
+,1726,504,2230,None,0,0
+,1726,504,2230,Data Analyst,256,2
+,1726,504,2230,Data Scientist,351,7
+kaplan,19,3,22,Data Scientist,260,0
+the phoenix,0,0,0,Software Engineer,80,0
+citi,89,0,89,Data Scientist,0,2
+guidehouse,1,0,1,Web Developer,192,2
+calico life sciences,4,0,4,Machine Learning Engineer,6,6
+intellipro,107,19,126,Data Scientist,0,4
+globus medical,10,0,10,Software Engineer,67,0
+synopsys,594,8,602,Software Engineer,223,7
+synopsys,594,8,602,Data Analyst,256,0
+ubs,161,4,165,Data Analyst,260,0
+ubs,161,4,165,Software Engineer,24,3
+metron,6,1,7,Software Engineer,8,2
+toyota research institute,7,1,8,Machine Learning Engineer,6,4
+toyota research institute,7,1,8,Web Developer,16,4
+transmit security,0,0,0,Web Developer,16,0
+softworld,23,2,25,Data Scientist,0,4
+wipro,17158,1627,18785,Web Developer,0,0
+cepheid,23,0,23,Data Analyst,0,2
+cubic,47,24,71,Data Analyst,260,0
+cubic,47,24,71,Data Scientist,324,6
+visa,116,2,118,Software Engineer,328,6
+avalon,2,1,3,Web Developer,24,0
+vensi,7,1,8,Web Developer,400,0
+adobe,691,11,702,Web Developer,16,1
+adobe,691,11,702,Data Scientist,260,6
+adobe,691,11,702,Data Analyst,268,0
+pentair,0,0,0,Software Engineer,0,1
+verys,3,1,4,Software Engineer,152,0
+mathworks,0,0,0,Web Developer,272,3
+vizient,5,1,6,Software Engineer,0,0
+md,14,0,14,Data Analyst,256,0
+md,14,0,14,Web Developer,16,0
+analytic partners,7,2,9,Machine Learning Engineer,260,0
+feuji,1,1,2,Data Analyst,0,1
+impaq,18,3,21,Data Analyst,256,2
+citius,519,70,589,Data Scientist,4,0
+zebra,47,2,49,Data Scientist,268,0
+couchbase,14,1,15,Software Engineer,383,0
+madison logic,4,0,4,Data Scientist,260,6
+amgen,330,18,348,Data Scientist,6,4
+blend,10,2,12,Software Engineer,340,0
+ibm,2918,433,3351,Software Engineer,0,0
+the climate,40,0,40,Software Engineer,72,0
+the climate,40,0,40,Data Scientist,64,0
+tekpartners,1,0,1,Data Analyst,0,3
+prodigiq,1,2,3,Software Engineer,272,2
+thirty madison,0,0,0,Software Engineer,4,0
+evernote,29,1,30,Data Scientist,0,2
+teqtron,41,1,42,Software Engineer,8,3
+broadridge,77,0,77,Web Developer,92,0
+central garden  pet,1,0,1,Software Engineer,336,1
+realty ome,0,1,1,Data Scientist,332,4
+kemper,1,0,1,Data Scientist,78,0
+equinix,40,0,40,Data Scientist,0,0
+phoenix staff,1,1,2,Data Scientist,260,0
+brain,26,0,26,Data Analyst,324,2
+eminence capital,1,0,1,Data Analyst,0,0
+facebook,4779,58,4837,Data Scientist,334,4
+facebook,4779,58,4837,Data Analyst,260,1
+cambia health,11,1,12,Data Scientist,334,0
+epic,832,14,846,Software Engineer,128,1
+epic,832,14,846,Web Developer,128,1
+ettain,7,1,8,Data Scientist,4,4
+ettain,7,1,8,Web Developer,400,0
+national computer,0,0,0,Software Engineer,263,0
+acumen,26,3,29,Software Engineer,400,0
+google,8671,143,8814,Software Engineer,223,4
+google,8671,143,8814,Data Analyst,260,6
+jma,18,1,19,Data Analyst,256,2
+lasalle,0,0,0,Software Engineer,8,0
+malwarebytes,10,1,11,Data Analyst,324,0
+marqmetrix,1,0,1,Data Scientist,260,1
+plymouth rock assurance,9,1,10,Data Analyst,260,1
+plymouth rock assurance,9,1,10,Data Scientist,4,0
+qcentrix,1,0,1,Data Scientist,12,0
+adroitco,2,1,3,Machine Learning Engineer,76,0
+cenergy,6,0,6,Data Analyst,0,0
+s,149,75,224,Software Engineer,268,7
+s,149,75,224,Software Engineer,16,0
+alteryx,2,0,2,Software Engineer,12,0
+gumgum,14,0,14,Machine Learning Engineer,260,0
+dynamic,65,8,73,Software Engineer,464,1
+genen,241,9,250,Data Analyst,0,0
