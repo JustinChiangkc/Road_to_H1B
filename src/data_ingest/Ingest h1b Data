@@ -1,0 +1,7 @@
+Local:
+scp -r data/h1b_cleaned_data kc4200@dumbo.es.its.nyu.edu:/home/netid/
+scp -r data/cleaned_jobs kc4200@dumbo.es.its.nyu.edu:/home/netid/
+Dumbo:
+hdfs dfs -mkdir data
+hdfs dfs -put h1b_cleaned_data data
+hdfs dfs -put cleaned_jobs data
