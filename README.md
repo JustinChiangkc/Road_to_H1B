@@ -7,4 +7,4 @@ For each skill/programming language, we provide the expected salary and the H1B 
 
 By the result, international students in tech can have a better understanding of what skills/programming language they should invest their time to maximize the return. 
 
-**Please check the RoadToH1B.pdf for detailed information and feel free to explore the tableau result.**
+**Please check the RoadToH1B.pdf for detailed information.**
