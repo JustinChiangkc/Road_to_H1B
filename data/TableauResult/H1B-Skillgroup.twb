@@ -1,11 +1,14 @@
 <?xml version='1.0' encoding='utf-8' ?>
 
-<!-- build 20201.20.0427.1803                               -->
-<workbook original-version='18.1' source-build='2020.1.3 (20201.20.0427.1803)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+<!-- build 20211.21.0420.1112                               -->
+<workbook original-version='18.1' source-build='2021.1.1 (20211.21.0420.1112)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
   <document-format-change-manifest>
     <IntuitiveSorting />
     <IntuitiveSorting_SP2 />
     <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
     <SheetIdentifierTracking />
     <WindowsPersistSimpleIdentifiers />
   </document-format-change-manifest>
@@ -18,15 +21,21 @@
       <connection class='federated'>
         <named-connections>
           <named-connection caption='part-00000-c9973012-d6d5-4bca-9394-62d550d75a89-c000' name='textscan.1nwx6rc0tf1svb13qop8713f9wyu'>
-            <connection class='textscan' directory='/Users/justinchiang/Documents/Schoolwork/BDAD/BDAD_Project/data/data/skill_all/Skills_h1b2.csv' filename='part-00000-c9973012-d6d5-4bca-9394-62d550d75a89-c000.csv' password='' server='' />
+            <connection class='textscan' directory='/Users/justinchiang/Documents/Schoolwork/20s_BDAD/BDAD_Project/TableauResult' filename='H1B-Skillgroup.twb' password='' server='' />
           </named-connection>
         </named-connections>
-        <relation connection='textscan.1nwx6rc0tf1svb13qop8713f9wyu' name='part-00000-c9973012-d6d5-4bca-9394-62d550d75a89-c000.csv' table='[part-00000-c9973012-d6d5-4bca-9394-62d550d75a89-c000#csv]' type='table'>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.1nwx6rc0tf1svb13qop8713f9wyu' name='part-00000-c9973012-d6d5-4bca-9394-62d550d75a89-c000.csv' table='[part-00000-c9973012-d6d5-4bca-9394-62d550d75a89-c000#csv]' type='table'>
           <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
             <column datatype='string' name='Skills' ordinal='0' />
             <column datatype='real' name='h1bCount' ordinal='1' />
           </columns>
-        </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='textscan.1nwx6rc0tf1svb13qop8713f9wyu' name='part-00000-c9973012-d6d5-4bca-9394-62d550d75a89-c000.csv' table='[part-00000-c9973012-d6d5-4bca-9394-62d550d75a89-c000#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name='Skills' ordinal='0' />
+            <column datatype='real' name='h1bCount' ordinal='1' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
         <metadata-records>
           <metadata-record class='capability'>
             <remote-name />
@@ -43,6 +52,7 @@
               <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
               <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
             </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Skills</remote-name>
@@ -57,6 +67,7 @@
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>h1bCount</remote-name>
@@ -68,16 +79,33 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
         </metadata-records>
       </connection>
+      <aliases enabled='yes' />
       <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
         <calculation class='tableau' formula='1' />
       </column>
-      <layout dim-ordering='alphabetic' dim-percentage='0.486624' measure-ordering='alphabetic' measure-percentage='0.513376' show-structure='true' />
+      <_.fcp.ObjectModelTableType.true...column caption='Migrated Data' datatype='table' name='[__tableau_internal_object_id__].[Migrated Data]' role='measure' type='quantitative' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
       <semantic-values>
         <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
       </semantic-values>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='Migrated Data' id='Migrated Data'>
+            <properties context=''>
+              <relation connection='textscan.1nwx6rc0tf1svb13qop8713f9wyu' name='part-00000-c9973012-d6d5-4bca-9394-62d550d75a89-c000.csv' table='[part-00000-c9973012-d6d5-4bca-9394-62d550d75a89-c000#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='string' name='Skills' ordinal='0' />
+                  <column datatype='real' name='h1bCount' ordinal='1' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
     </datasource>
   </datasources>
   <worksheets>
